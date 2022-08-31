@@ -1,0 +1,3 @@
+#load "Behaviours\NewBehaviour.cs"
+
+LoadBehaviour(typeof(NewBehaviour));
