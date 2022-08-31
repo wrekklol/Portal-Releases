@@ -1,7 +1,8 @@
 public class ExampleBehaviour : IScriptBehaviour
 {
     public string BehaviourName => "ExampleBehaviour";
-
+    public int LoopAmount => 3;
+    
     public void Init()
     {
         Print("Hello from Behaviour Initialization!");
