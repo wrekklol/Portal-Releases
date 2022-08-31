@@ -11,7 +11,7 @@ public class NewBehaviour : IScriptBehaviour
     {
         Print("Hello from Behaviour Run!");
 
-        // Finds a template from your "Templates" folder in your module folder, and click it!
+        // Finds a template from your "Templates" folder in your module folder, and clicks it!
         //WaitUntilFound("Your Template Name Here")?.Draw().Click();
     }
 }
