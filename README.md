@@ -12,6 +12,6 @@ Features:
 
 Planned Features:
 * Visual Scripting
-* More Image Detection algorithms, currently only OpenCV is used.
+* More Image Detection algorithms, currently only OpenCV is used
 * OCR
 * Maybe more?
