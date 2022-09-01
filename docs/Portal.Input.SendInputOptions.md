@@ -11,12 +11,12 @@ public struct SendInputOptions
 
 | Constructors | |
 | :--- | :--- |
-| [SendInputOptions(Keys, int, int)](Portal.Input.SendInputOptions.SendInputOptions(System.Windows.Forms.Keys,int,int).md 'Portal.Input.SendInputOptions.SendInputOptions(System.Windows.Forms.Keys, int, int)') | SendInputOptions that takes a key, a press delay and a release delay. |
-| [SendInputOptions(Keys, int)](Portal.Input.SendInputOptions.SendInputOptions(System.Windows.Forms.Keys,int).md 'Portal.Input.SendInputOptions.SendInputOptions(System.Windows.Forms.Keys, int)') | SendInputOptions that takes a key and a release delay. |
-| [SendInputOptions(Keys, KeyModifiers, int, int, object)](Portal.Input.SendInputOptions.SendInputOptions(System.Windows.Forms.Keys,Portal.Input.KeyModifiers,int,int,object).md 'Portal.Input.SendInputOptions.SendInputOptions(System.Windows.Forms.Keys, Portal.Input.KeyModifiers, int, int, object)') | SendInputOptions that takes a key, modifiers, a press delay, a release delay and extra data. |
-| [SendInputOptions(Keys, KeyModifiers, int)](Portal.Input.SendInputOptions.SendInputOptions(System.Windows.Forms.Keys,Portal.Input.KeyModifiers,int).md 'Portal.Input.SendInputOptions.SendInputOptions(System.Windows.Forms.Keys, Portal.Input.KeyModifiers, int)') | SendInputOptions that takes a key, modifiers and a release delay. |
-| [SendInputOptions(Keys, KeyModifiers)](Portal.Input.SendInputOptions.SendInputOptions(System.Windows.Forms.Keys,Portal.Input.KeyModifiers).md 'Portal.Input.SendInputOptions.SendInputOptions(System.Windows.Forms.Keys, Portal.Input.KeyModifiers)') | SendInputOptions that takes a key and modifiers. |
 | [SendInputOptions(Keys)](Portal.Input.SendInputOptions.SendInputOptions(System.Windows.Forms.Keys).md 'Portal.Input.SendInputOptions.SendInputOptions(System.Windows.Forms.Keys)') | SendInputOptions that only takes a key. |
+| [SendInputOptions(Keys, int)](Portal.Input.SendInputOptions.SendInputOptions(System.Windows.Forms.Keys,int).md 'Portal.Input.SendInputOptions.SendInputOptions(System.Windows.Forms.Keys, int)') | SendInputOptions that takes a key and a release delay. |
+| [SendInputOptions(Keys, int, int)](Portal.Input.SendInputOptions.SendInputOptions(System.Windows.Forms.Keys,int,int).md 'Portal.Input.SendInputOptions.SendInputOptions(System.Windows.Forms.Keys, int, int)') | SendInputOptions that takes a key, a press delay and a release delay. |
+| [SendInputOptions(Keys, KeyModifiers)](Portal.Input.SendInputOptions.SendInputOptions(System.Windows.Forms.Keys,Portal.Input.KeyModifiers).md 'Portal.Input.SendInputOptions.SendInputOptions(System.Windows.Forms.Keys, Portal.Input.KeyModifiers)') | SendInputOptions that takes a key and modifiers. |
+| [SendInputOptions(Keys, KeyModifiers, int)](Portal.Input.SendInputOptions.SendInputOptions(System.Windows.Forms.Keys,Portal.Input.KeyModifiers,int).md 'Portal.Input.SendInputOptions.SendInputOptions(System.Windows.Forms.Keys, Portal.Input.KeyModifiers, int)') | SendInputOptions that takes a key, modifiers and a release delay. |
+| [SendInputOptions(Keys, KeyModifiers, int, int, object)](Portal.Input.SendInputOptions.SendInputOptions(System.Windows.Forms.Keys,Portal.Input.KeyModifiers,int,int,object).md 'Portal.Input.SendInputOptions.SendInputOptions(System.Windows.Forms.Keys, Portal.Input.KeyModifiers, int, int, object)') | SendInputOptions that takes a key, modifiers, a press delay, a release delay and extra data. |
 
 | Properties | |
 | :--- | :--- |

@@ -3,7 +3,7 @@
 
 ## SearchOptions.Method Property
 
-Template method. <br/> See [Template](Portal.ImageDetection.Template.md 'Portal.ImageDetection.Template') remarks.
+Search method. <br/> See [Template](Portal.ImageDetection.Template.md 'Portal.ImageDetection.Template') remarks.
 
 ```csharp
 public OpenCvSharp.TemplateMatchModes Method { get; set; }

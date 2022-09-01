@@ -30,8 +30,8 @@ Masks are generated from your (image)file's alpha channel.
 
 | Constructors | |
 | :--- | :--- |
-| [Template(string, Mat, Mat, double, TemplateMatchModes, bool)](Portal.ImageDetection.Template.Template(string,OpenCvSharp.Mat,OpenCvSharp.Mat,double,OpenCvSharp.TemplateMatchModes,bool).md 'Portal.ImageDetection.Template.Template(string, OpenCvSharp.Mat, OpenCvSharp.Mat, double, OpenCvSharp.TemplateMatchModes, bool)') | Template constructor. |
 | [Template(string, Mat, Mat)](Portal.ImageDetection.Template.Template(string,OpenCvSharp.Mat,OpenCvSharp.Mat).md 'Portal.ImageDetection.Template.Template(string, OpenCvSharp.Mat, OpenCvSharp.Mat)') | Calls [Template(string, Mat, Mat, double, TemplateMatchModes, bool)](Portal.ImageDetection.Template.Template(string,OpenCvSharp.Mat,OpenCvSharp.Mat,double,OpenCvSharp.TemplateMatchModes,bool).md 'Portal.ImageDetection.Template.Template(string, OpenCvSharp.Mat, OpenCvSharp.Mat, double, OpenCvSharp.TemplateMatchModes, bool)') with default values of (0.75, CCOEFF, false) for "Threshold", "Method" and "bShouldOverride" respectively/> |
+| [Template(string, Mat, Mat, double, TemplateMatchModes, bool)](Portal.ImageDetection.Template.Template(string,OpenCvSharp.Mat,OpenCvSharp.Mat,double,OpenCvSharp.TemplateMatchModes,bool).md 'Portal.ImageDetection.Template.Template(string, OpenCvSharp.Mat, OpenCvSharp.Mat, double, OpenCvSharp.TemplateMatchModes, bool)') | Template constructor. |
 
 | Properties | |
 | :--- | :--- |

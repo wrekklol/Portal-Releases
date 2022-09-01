@@ -11,4 +11,4 @@
 | Structs | |
 | :--- | :--- |
 | [RepeatOptions](Portal.ImageDetection.RepeatOptions.md 'Portal.ImageDetection.RepeatOptions') | Repeat options for image detection. |
-| [SearchOptions](Portal.ImageDetection.SearchOptions.md 'Portal.ImageDetection.SearchOptions') | Search options for image detection. |
+| [SearchOptions](Portal.ImageDetection.SearchOptions.md 'Portal.ImageDetection.SearchOptions') | Search options for image detection.<br/>Default search options are (GAME_RECT, 0.75, CCOEFF, false) for ([Region](Portal.ImageDetection.SearchOptions.Region.md 'Portal.ImageDetection.SearchOptions.Region'), [Threshold](Portal.ImageDetection.SearchOptions.Threshold.md 'Portal.ImageDetection.SearchOptions.Threshold'), [Method](Portal.ImageDetection.SearchOptions.Method.md 'Portal.ImageDetection.SearchOptions.Method'), [bFirstMatch](Portal.ImageDetection.SearchOptions.bFirstMatch.md 'Portal.ImageDetection.SearchOptions.bFirstMatch')) respectively. |
