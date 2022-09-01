@@ -1,8 +1,8 @@
 # Portal
  Portal is a scripting framework for automating tasks.
 
-[**Documentation here.**](https://wrekklol.github.io/Portal-Releases/)<br>
-Information on how to create a module is on [this page.](https://wrekklol.github.io/Portal-Releases/Portal.Scripting.CSharp.CSharpModule.md)
+[**Documentation here.**](https://github.com/wrekklol/Portal-Releases/blob/main/docs/index.md)<br>
+Information on how to create a module is on [this page.](https://github.com/wrekklol/Portal-Releases/blob/main/docs/Portal.Scripting.CSharp.CSharpModule.md)
 <br>
 <br>
 Features:
