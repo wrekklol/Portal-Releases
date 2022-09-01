@@ -5,7 +5,7 @@
 
 Functions for detecting an image([Template](Portal.ImageDetection.Template.md 'Portal.ImageDetection.Template')) on the screen.  
   
-There are functions in [ScriptHelpers](Portal.Utility.ScriptHelpers.md 'Portal.Utility.ScriptHelpers') which should be instead instead of these functions, as these are only intended to be "base" functions to find templates.
+There are functions in [ScriptHelpers](Portal.Utility.ScriptHelpers.md 'Portal.Utility.ScriptHelpers') which should be used instead of these functions, as these are only intended to be "base" functions to find templates.
 
 ```csharp
 public static class ImageDetection
