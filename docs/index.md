@@ -5,8 +5,10 @@
 | Namespaces | |
 | :--- | :--- |
 | [Portal](Portal.md 'Portal') | |
+| [Portal.GUI](Portal.GUI.md 'Portal.GUI') | |
 | [Portal.ImageDetection](Portal.ImageDetection.md 'Portal.ImageDetection') | |
 | [Portal.Input](Portal.Input.md 'Portal.Input') | |
 | [Portal.Scripting](Portal.Scripting.md 'Portal.Scripting') | |
 | [Portal.Scripting.CSharp](Portal.Scripting.CSharp.md 'Portal.Scripting.CSharp') | |
 | [Portal.Utility](Portal.Utility.md 'Portal.Utility') | |
+| [XamlGeneratedNamespace](XamlGeneratedNamespace.md 'XamlGeneratedNamespace') | |

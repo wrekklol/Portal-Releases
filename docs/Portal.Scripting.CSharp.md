@@ -4,4 +4,4 @@
 
 | Classes | |
 | :--- | :--- |
-| [CSharpModule](Portal.Scripting.CSharp.CSharpModule.md 'Portal.Scripting.CSharp.CSharpModule') | Module which contains behaviours scripted in c#. |
+| [CSharpModule](CSharpModule.md 'Portal.Scripting.CSharp.CSharpModule') | Module which contains behaviours scripted in c#. |

@@ -1,3 +1,0 @@
-#load "Behaviours\ExampleBehaviour.cs"
-
-LoadBehaviour(typeof(ExampleBehaviour));

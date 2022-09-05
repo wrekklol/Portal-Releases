@@ -4,4 +4,10 @@
 
 | Classes | |
 | :--- | :--- |
-| [Globals](Portal.Globals.md 'Portal.Globals') | |
+| [App](App.md 'Portal.App') | Interaction logic for App.xaml |
+| [Globals](Globals.md 'Portal.Globals') | |
+
+| Structs | |
+| :--- | :--- |
+| [GamePoint](GamePoint.md 'Portal.GamePoint') | |
+| [GameRegion](GameRegion.md 'Portal.GameRegion') | |

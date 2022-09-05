@@ -4,4 +4,4 @@
 
 | Interfaces | |
 | :--- | :--- |
-| [IScriptBehaviour](Portal.Scripting.IScriptBehaviour.md 'Portal.Scripting.IScriptBehaviour') | This interface is what all behaviours should inherit from. |
+| [IScriptBehaviour](IScriptBehaviour.md 'Portal.Scripting.IScriptBehaviour') | This interface is what all behaviours should inherit from. |
