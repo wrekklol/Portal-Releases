@@ -19,12 +19,12 @@ There is an example of a module included, it is located in your Portal folder in
   
 To create a new module, simply create a new folder in your "Modules" folder, and create a file called "YourAwesomeModule.module", and a file called "YourAwesomeModule.include".   
   
-To create a behaviour, simply create a new folder in your new module folder, you can call it whatever you like, though "Behaviours" is recommended. Then create a file called "YourAwesomeBehaviour.cs", in which you need to create a class that inherits from [IScriptBehaviour](IScriptBehaviour.md 'Portal.Scripting.IScriptBehaviour'), and has two functions called [Init()](IScriptBehaviour.Init().md 'Portal.Scripting.IScriptBehaviour.Init()') and [Run()](IScriptBehaviour.Run().md 'Portal.Scripting.IScriptBehaviour.Run()').  
+To create a behaviour, simply create a new folder in your new module folder, you can call it whatever you like, though "Behaviours" is recommended. Then create a file called "YourAwesomeBehaviour.cs", in which you need to create a class that inherits from [IScriptBehaviour](IScriptBehaviour.md 'Portal.Scripting.IScriptBehaviour'), and has four functions called [Init()](IScriptBehaviour.Init().md 'Portal.Scripting.IScriptBehaviour.Init()'), [Start()](IScriptBehaviour.Start().md 'Portal.Scripting.IScriptBehaviour.Start()'), [Run()](IScriptBehaviour.Run().md 'Portal.Scripting.IScriptBehaviour.Run()') and [Stop()](IScriptBehaviour.Stop().md 'Portal.Scripting.IScriptBehaviour.Stop()').  
   
 Example behaviour file:  
   
 ```csharp  
-public class YourAwesomeBehaviour : IScriptBehaviour  
+public class ExampleBehaviour : IScriptBehaviour  
 {  
     public int LoopAmount => 3;  
   
@@ -34,6 +34,11 @@ public class YourAwesomeBehaviour : IScriptBehaviour
     {  
         Print("Hello from Behaviour Initialization!");  
     }  
+      
+    public void Start()  
+    {  
+        Print("Hello from Behaviour Start!");  
+    }  
   
     public void Run()  
     {  
@@ -41,6 +46,11 @@ public class YourAwesomeBehaviour : IScriptBehaviour
   
         // Finds a template from your "Templates" folder in your module folder, and clicks it!  
         //WaitUntilFound("Example Template")?.Draw().Click();  
+    }  
+      
+    public void Stop()  
+    {  
+        Print("Hello from Behaviour Stop!");  
     }  
 }  
 ```  
