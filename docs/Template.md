@@ -1,5 +1,5 @@
 #### [Portal](index.md 'index')
-### [Portal.ImageDetection](Portal.ImageDetection.md 'Portal.ImageDetection')
+### [Portal.Detection](Portal.Detection.md 'Portal.Detection')
 
 ## Template Class
 
@@ -30,24 +30,24 @@ Masks are generated from your (image)file's alpha channel.
 
 | Constructors | |
 | :--- | :--- |
-| [Template(string, Mat, Mat, double, TemplateMatchModes, bool)](Template.Template(string,Mat,Mat,double,TemplateMatchModes,bool).md 'Portal.ImageDetection.Template.Template(string, OpenCvSharp.Mat, OpenCvSharp.Mat, double, OpenCvSharp.TemplateMatchModes, bool)') | Template constructor. |
+| [Template(string, Mat, Mat, double, TemplateMatchModes, bool)](Template.Template(string,Mat,Mat,double,TemplateMatchModes,bool).md 'Portal.Detection.Template.Template(string, OpenCvSharp.Mat, OpenCvSharp.Mat, double, OpenCvSharp.TemplateMatchModes, bool)') | Template constructor. |
 
 | Properties | |
 | :--- | :--- |
-| [bShouldOverride](Template.bShouldOverride.md 'Portal.ImageDetection.Template.bShouldOverride') | True if a suffix was added to your template filename. <br/> See [Template](Template.md 'Portal.ImageDetection.Template') remarks. |
-| [H](Template.H.md 'Portal.ImageDetection.Template.H') | Template height, gets [Portal.GameSize.Height](https://docs.microsoft.com/en-us/dotnet/api/Portal.GameSize.Height 'Portal.GameSize.Height'). |
-| [Image](Template.Image.md 'Portal.ImageDetection.Template.Image') | Template image matrix. |
-| [Mask](Template.Mask.md 'Portal.ImageDetection.Template.Mask') | Template mask matrix from image alpha. <br/> See [Template](Template.md 'Portal.ImageDetection.Template') remarks. |
-| [Method](Template.Method.md 'Portal.ImageDetection.Template.Method') | Template method. <br/> See [Template](Template.md 'Portal.ImageDetection.Template') remarks. |
-| [Name](Template.Name.md 'Portal.ImageDetection.Template.Name') | Template name. |
-| [Size](Template.Size.md 'Portal.ImageDetection.Template.Size') | Template size, which is set from image matrix size. |
-| [Threshold](Template.Threshold.md 'Portal.ImageDetection.Template.Threshold') | Template threshold. |
-| [W](Template.W.md 'Portal.ImageDetection.Template.W') | Template width, gets [Portal.GameSize.Width](https://docs.microsoft.com/en-us/dotnet/api/Portal.GameSize.Width 'Portal.GameSize.Width'). |
+| [bShouldOverride](Template.bShouldOverride.md 'Portal.Detection.Template.bShouldOverride') | True if a suffix was added to your template filename. <br/> See [Template](Template.md 'Portal.Detection.Template') remarks. |
+| [H](Template.H.md 'Portal.Detection.Template.H') | Template height, gets [Portal.GameSize.Height](https://docs.microsoft.com/en-us/dotnet/api/Portal.GameSize.Height 'Portal.GameSize.Height'). |
+| [Image](Template.Image.md 'Portal.Detection.Template.Image') | Template image matrix. |
+| [Mask](Template.Mask.md 'Portal.Detection.Template.Mask') | Template mask matrix from image alpha. <br/> See [Template](Template.md 'Portal.Detection.Template') remarks. |
+| [Method](Template.Method.md 'Portal.Detection.Template.Method') | Template method. <br/> See [Template](Template.md 'Portal.Detection.Template') remarks. |
+| [Name](Template.Name.md 'Portal.Detection.Template.Name') | Template name. |
+| [Size](Template.Size.md 'Portal.Detection.Template.Size') | Template size, which is set from image matrix size. |
+| [Threshold](Template.Threshold.md 'Portal.Detection.Template.Threshold') | Template threshold. |
+| [W](Template.W.md 'Portal.Detection.Template.W') | Template width, gets [Portal.GameSize.Width](https://docs.microsoft.com/en-us/dotnet/api/Portal.GameSize.Width 'Portal.GameSize.Width'). |
 
 | Methods | |
 | :--- | :--- |
-| [ToString()](Template.ToString().md 'Portal.ImageDetection.Template.ToString()') | Overridden ToString function. |
+| [ToString()](Template.ToString().md 'Portal.Detection.Template.ToString()') | Overridden ToString function. |
 
 | Operators | |
 | :--- | :--- |
-| [implicit operator Template(string)](Template.implicitoperatorTemplate(string).md 'Portal.ImageDetection.Template.op_Implicit Portal.ImageDetection.Template(string)') | Cast operator. <br/> Allows you to cast a string to a Template from your "Templates" folder. |
+| [implicit operator Template(string)](Template.implicitoperatorTemplate(string).md 'Portal.Detection.Template.op_Implicit Portal.Detection.Template(string)') | Cast operator. <br/> Allows you to cast a string to a Template from your "Templates" folder. |

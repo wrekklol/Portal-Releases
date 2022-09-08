@@ -1,5 +1,5 @@
 #### [Portal](index.md 'index')
-### [Portal.ImageDetection](Portal.ImageDetection.md 'Portal.ImageDetection').[Match](Match.md 'Portal.ImageDetection.Match')
+### [Portal.Detection](Portal.Detection.md 'Portal.Detection').[Match](Match.md 'Portal.Detection.Match')
 
 ## Match.Region Property
 

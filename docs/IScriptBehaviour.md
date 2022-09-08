@@ -16,4 +16,6 @@ public interface IScriptBehaviour
 | Methods | |
 | :--- | :--- |
 | [Init()](IScriptBehaviour.Init().md 'Portal.Scripting.IScriptBehaviour.Init()') | Initialization function, must be overridden.<br/><br/>Gets called when its owning module is initializing. |
-| [Run()](IScriptBehaviour.Run().md 'Portal.Scripting.IScriptBehaviour.Run()') | Run function, must be overridden.<br/>           <br/>           Gets called when its owning module is running, for example by pressing the "Run Behaviour" button in the GUI. |
+| [Run()](IScriptBehaviour.Run().md 'Portal.Scripting.IScriptBehaviour.Run()') | Run function, must be overridden.<br/><br/>Gets called when its behaviour is running, for example by pressing the "Run Behaviour" button in the GUI. |
+| [Start()](IScriptBehaviour.Start().md 'Portal.Scripting.IScriptBehaviour.Start()') | Start function, must be overridden.<br/><br/>Gets called when its behaviour is started. |
+| [Stop()](IScriptBehaviour.Stop().md 'Portal.Scripting.IScriptBehaviour.Stop()') | Stop function, must be overridden.<br/><br/>Gets called when its behaviour is stopped. |

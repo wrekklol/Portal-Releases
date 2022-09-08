@@ -5,7 +5,6 @@
 | Classes | |
 | :--- | :--- |
 | [App](App.md 'Portal.App') | Interaction logic for App.xaml |
-| [Globals](Globals.md 'Portal.Globals') | |
 
 | Structs | |
 | :--- | :--- |

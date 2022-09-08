@@ -1,5 +1,5 @@
 #### [Portal](index.md 'index')
-### [Portal.ImageDetection](Portal.ImageDetection.md 'Portal.ImageDetection').[Template](Template.md 'Portal.ImageDetection.Template')
+### [Portal.Detection](Portal.Detection.md 'Portal.Detection').[Template](Template.md 'Portal.Detection.Template')
 
 ## Template.ToString() Method
 
@@ -11,4 +11,4 @@ public override string ToString();
 
 #### Returns
 [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')  
-Output: ([Name](Template.Name.md 'Portal.ImageDetection.Template.Name'), [Threshold](Template.Threshold.md 'Portal.ImageDetection.Template.Threshold'), [Method](Template.Method.md 'Portal.ImageDetection.Template.Method'))
+Output: ([Name](Template.Name.md 'Portal.Detection.Template.Name'), [Threshold](Template.Threshold.md 'Portal.Detection.Template.Threshold'), [Method](Template.Method.md 'Portal.Detection.Template.Method'))

@@ -1,5 +1,5 @@
 #### [Portal](index.md 'index')
-### [Portal.ImageDetection](Portal.ImageDetection.md 'Portal.ImageDetection').[RepeatOptions](RepeatOptions.md 'Portal.ImageDetection.RepeatOptions')
+### [Portal.Detection](Portal.Detection.md 'Portal.Detection').[RepeatOptions](RepeatOptions.md 'Portal.Detection.RepeatOptions')
 
 ## RepeatOptions.ToString() Method
 
@@ -11,4 +11,4 @@ public override string ToString();
 
 #### Returns
 [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')  
-Output: ([MaxTries](RepeatOptions.MaxTries.md 'Portal.ImageDetection.RepeatOptions.MaxTries'), [DelayBetweenSearches](RepeatOptions.DelayBetweenSearches.md 'Portal.ImageDetection.RepeatOptions.DelayBetweenSearches'))
+Output: ([MaxTries](RepeatOptions.MaxTries.md 'Portal.Detection.RepeatOptions.MaxTries'), [DelayBetweenSearches](RepeatOptions.DelayBetweenSearches.md 'Portal.Detection.RepeatOptions.DelayBetweenSearches'))

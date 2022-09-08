@@ -4,12 +4,12 @@
 
 | Classes | |
 | :--- | :--- |
-| [Input](Input.md 'Portal.Input.Input') | |
+| [InputManager](InputManager.md 'Portal.Input.InputManager') | |
 
 | Structs | |
 | :--- | :--- |
-| [SendInputOptions](SendInputOptions.md 'Portal.Input.SendInputOptions') | Input options. |
+| [InputOptions](InputOptions.md 'Portal.Input.InputOptions') | Input options. |
 
 | Enums | |
 | :--- | :--- |
-| [KeyModifiers](KeyModifiers.md 'Portal.Input.KeyModifiers') | Key modifiers. |
+| [EKeyModifiers](EKeyModifiers.md 'Portal.Input.EKeyModifiers') | Key modifiers. |

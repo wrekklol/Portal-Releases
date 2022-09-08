@@ -1,5 +1,5 @@
 #### [Portal](index.md 'index')
-### [Portal.ImageDetection](Portal.ImageDetection.md 'Portal.ImageDetection')
+### [Portal.Detection](Portal.Detection.md 'Portal.Detection')
 
 ## RepeatOptions Struct
 
@@ -26,13 +26,13 @@ RepeatOptions MyRepeatOptions = RepeatOptions.HighDelay; // Translates to new(3,
 
 | Constructors | |
 | :--- | :--- |
-| [RepeatOptions(int, int)](RepeatOptions.RepeatOptions(int,int).md 'Portal.ImageDetection.RepeatOptions.RepeatOptions(int, int)') | RepeatOptions constructor. |
+| [RepeatOptions(int, int)](RepeatOptions.RepeatOptions(int,int).md 'Portal.Detection.RepeatOptions.RepeatOptions(int, int)') | RepeatOptions constructor. |
 
 | Properties | |
 | :--- | :--- |
-| [DelayBetweenSearches](RepeatOptions.DelayBetweenSearches.md 'Portal.ImageDetection.RepeatOptions.DelayBetweenSearches') | Delay between each try. |
-| [MaxTries](RepeatOptions.MaxTries.md 'Portal.ImageDetection.RepeatOptions.MaxTries') | Maximum amount of tries. |
+| [DelayBetweenSearches](RepeatOptions.DelayBetweenSearches.md 'Portal.Detection.RepeatOptions.DelayBetweenSearches') | Delay between each try. |
+| [MaxTries](RepeatOptions.MaxTries.md 'Portal.Detection.RepeatOptions.MaxTries') | Maximum amount of tries. |
 
 | Methods | |
 | :--- | :--- |
-| [ToString()](RepeatOptions.ToString().md 'Portal.ImageDetection.RepeatOptions.ToString()') | Overridden ToString function. |
+| [ToString()](RepeatOptions.ToString().md 'Portal.Detection.RepeatOptions.ToString()') | Overridden ToString function. |

@@ -1,9 +1,9 @@
 #### [Portal](index.md 'index')
-### [Portal.ImageDetection](Portal.ImageDetection.md 'Portal.ImageDetection').[SearchOptions](SearchOptions.md 'Portal.ImageDetection.SearchOptions')
+### [Portal.Detection](Portal.Detection.md 'Portal.Detection').[SearchOptions](SearchOptions.md 'Portal.Detection.SearchOptions')
 
 ## SearchOptions.Method Property
 
-Search method. <br/> See [Template](Template.md 'Portal.ImageDetection.Template') remarks.
+Search method. <br/> See [Template](Template.md 'Portal.Detection.Template') remarks.
 
 ```csharp
 public OpenCvSharp.TemplateMatchModes Method { get; set; }

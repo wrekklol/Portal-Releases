@@ -1,5 +1,5 @@
 #### [Portal](index.md 'index')
-### [Portal.ImageDetection](Portal.ImageDetection.md 'Portal.ImageDetection').[SearchOptions](SearchOptions.md 'Portal.ImageDetection.SearchOptions')
+### [Portal.Detection](Portal.Detection.md 'Portal.Detection').[SearchOptions](SearchOptions.md 'Portal.Detection.SearchOptions')
 
 ## SearchOptions.Region Property
 
