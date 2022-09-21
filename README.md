@@ -102,9 +102,9 @@ Which will move the mouse to the center of the match's region.
 
 <br/>
 
-### [Click]()
+### [Click](https://github.com/wrekklol/Portal-Releases/blob/main/docs/InputManager.Click(InputOptions).md)
 This will send down and up input, and you can go into more details with the options parameter, like modifiers(ctrl, shift etc), delays and data(mouse wheel direction etc).  
-[InputOptions](https://github.com/wrekklol/Portal-Releases/blob/main/docs/InputOptions.md) can be implicitly converted to from an [EKeys]() enum, like [EKeys.LButton](), which is the left mouse button.
+[InputOptions](https://github.com/wrekklol/Portal-Releases/blob/main/docs/InputOptions.md) can be implicitly converted to from an [EKeys](https://github.com/wrekklol/Portal-Releases/blob/main/docs/EKeys.md) enum, like EKeys.LButton, which is the left mouse button.
 
 Example:
 ```C#
@@ -115,7 +115,8 @@ Will send a left mouse button "click"(down and up input).
 <br/>
 
 ### [SendInput](https://github.com/wrekklol/Portal-Releases/blob/main/docs/InputManager.SendInput(InputOptions).md)
-This will send the specified input options, where you have to specify [EKeys]() as well as [EKeyState]() (Up or Down). If KeyState is not specified it will default to EKeyState.Down | EKeyState Up, which exactly like a [Click]().  
+This will send the specified input options, where you have to specify [EKeys](https://github.com/wrekklol/Portal-Releases/blob/main/docs/EKeys.md) as well as [EKeyState](https://github.com/wrekklol/Portal-Releases/blob/main/docs/EKeyState.md) (Up or Down). If InKeyState is not specified it will default to EKeyState.Down | EKeyState Up, which exactly like a [Click](https://github.com/wrekklol/Portal-Releases/blob/main/docs/InputManager.Click(InputOptions).md).  
+Key modifiers can also be specified using the [EKeyModifiers](https://github.com/wrekklol/Portal-Releases/blob/main/docs/EKeyModifiers.md) enum.
 
 Example:
 ```C#
