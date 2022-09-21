@@ -26,9 +26,10 @@ To start scripting, simply edit the example behaviour located in your Modules fo
 You can easily start detecting templates and sending input etc.  
 To detect a template, capture an image you want to detect, put it inside the Templates folder in your module folder (Portal/Modules/ExampleModule/Templates/), and call it from your behaviour with one of the UntilFound functions from [ScriptHelpers](https://github.com/wrekklol/Portal-Releases/blob/main/docs/ScriptHelpers.md).
 
-### Detecting Templates
+## Detection
 
-[WaitUntilFound](https://github.com/wrekklol/Portal-Releases/blob/main/docs/ScriptHelpers.WaitUntilFound(string,Nullable_SearchOptions_,Nullable_RepeatOptions_).md) is the most basic one. It will simply try to find your template by its filename, and return the [Match](https://github.com/wrekklol/Portal-Releases/blob/main/docs/Match.md) found.  
+### [WaitUntilFound](https://github.com/wrekklol/Portal-Releases/blob/main/docs/ScriptHelpers.WaitUntilFound(string,Nullable_SearchOptions_,Nullable_RepeatOptions_).md)
+This is the most basic one. It will simply try to find your template by its filename, and return the [Match](https://github.com/wrekklol/Portal-Releases/blob/main/docs/Match.md) found.  
 You can specify some [SearchOptions](https://github.com/wrekklol/Portal-Releases/blob/main/docs/SearchOptions.md) to narrow down your search a bit, and [RepeatOptions](https://github.com/wrekklol/Portal-Releases/blob/main/docs/RepeatOptions.md) to specify how many times it should try to find the template.
 
 Example:
@@ -39,7 +40,8 @@ This will try to find the template with the filename "MyTemplate" in a region (2
 
 <br/>
 
-[DoUntilFound](https://github.com/wrekklol/Portal-Releases/blob/main/docs/ScriptHelpers.DoUntilFound(string,Action,Nullable_SearchOptions_,Nullable_RepeatOptions_).md) is a little bit more advanced.  
+### [DoUntilFound](https://github.com/wrekklol/Portal-Releases/blob/main/docs/ScriptHelpers.DoUntilFound(string,Action,Nullable_SearchOptions_,Nullable_RepeatOptions_).md)
+This one is a little bit more advanced.  
 In addition to the above, you can also give it an [Action](https://learn.microsoft.com/en-us/dotnet/api/system.action?view=net-6.0).
 
 Example:
@@ -51,7 +53,8 @@ This will increment MyIntVar every iteration.
 
 <br/>
 
-[DoUntilPredicate](https://github.com/wrekklol/Portal-Releases/blob/main/docs/ScriptHelpers.DoUntilPredicate(string,Action,Predicate_Match_,Nullable_SearchOptions_,Nullable_RepeatOptions_).md) is a the most advanced.  
+### [DoUntilPredicate](https://github.com/wrekklol/Portal-Releases/blob/main/docs/ScriptHelpers.DoUntilPredicate(string,Action,Predicate_Match_,Nullable_SearchOptions_,Nullable_RepeatOptions_).md)
+This is the most advanced one.  
 In addition to the above, you can also give it a [Predicate](https://learn.microsoft.com/en-us/dotnet/api/system.predicate-1?view=net-6.0).  
 Note that this won't just stop when a template is found, it will continue until the specified Predicate is true.
 
@@ -64,9 +67,10 @@ In addtion to incrementing MyIntVar every iteration, it will check if the found 
 
 <br/>
 
-### Sending Input
+## Sending Input
 
-[MouseMove](https://github.com/wrekklol/Portal-Releases/blob/main/docs/InputManager.MouseMove(GamePoint).md) will move your mouse with human-like movements towards the given [GamePoint](https://github.com/wrekklol/Portal-Releases/blob/main/docs/GamePoint.md).  
+### [MouseMove](https://github.com/wrekklol/Portal-Releases/blob/main/docs/InputManager.MouseMove(GamePoint).md) 
+This will move your mouse with human-like movements towards the given [GamePoint](https://github.com/wrekklol/Portal-Releases/blob/main/docs/GamePoint.md).  
 It has [overloads](https://github.com/wrekklol/Portal-Releases/blob/main/docs/InputManager.md) where you can specify how "random" it should be, but those options can also be adjusted globally in the config.
 
 Example:
