@@ -124,6 +124,6 @@ SendInput(new InputOptions(EKeys.LButton, EKeyState.Down, EKeyModifiers.Shift | 
 Will send a left mouse button down while holding Shift and Control modifier keys.  
 Scrolling can be done like this:
 ```C#
-SendInput(new InputOptions(EKeys.MButton, EKeyState.Down, InData: 1));
+SendInput(new InputOptions(EKeys.WButton, EKeyState.Down, InData: 1));
 ```
 Which will scroll up. Scrolling down is currently not supported, due to bad implementation of PInvoke.User32 package from Microsoft.
