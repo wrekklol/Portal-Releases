@@ -82,7 +82,7 @@ If you already have a match stored as a variable you could do:
 ```C#
 MouseMove(MyMatchVar.Region.Center);
 ```
-Which will move the mouse to the center of the match's region.
+Which will move the mouse to the [center](https://github.com/wrekklol/Portal-Releases/blob/main/docs/GameRegion.Center.md) of the match's [region](https://github.com/wrekklol/Portal-Releases/blob/main/docs/GameRegion.md).
 
 <br/>
 
@@ -98,7 +98,7 @@ If you already have a match stored as a variable you could do:
 ```C#
 MouseMove_Instant(MyMatchVar.Region.Center);
 ```
-Which will move the mouse to the center of the match's region.
+Which will move the mouse to the [center](https://github.com/wrekklol/Portal-Releases/blob/main/docs/GameRegion.Center.md) of the match's [region](https://github.com/wrekklol/Portal-Releases/blob/main/docs/GameRegion.md).
 
 <br/>
 
