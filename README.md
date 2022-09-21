@@ -75,11 +75,37 @@ It has [overloads](https://github.com/wrekklol/Portal-Releases/blob/main/docs/In
 
 Example:
 ```C#
-MouseMove(new GamePoint(500, 500))
+MouseMove(new GamePoint(500, 500));
 ```
 Which will move the mouse to x coordinate 500 and y coordinate 500.  
 If you already have a match stored as a variable you could do:
 ```C#
-MouseMove(MyMatchVar.Region.Center)
+MouseMove(MyMatchVar.Region.Center);
 ```
 Which will move the mouse to the center of the match's region.
+
+<br/>
+
+### [MouseMove_Instant](https://github.com/wrekklol/Portal-Releases/blob/main/docs/InputManager.MouseMove_Instant(GamePoint,GamePoint).md)
+This will move your mouse to the specified [GamePoint](https://github.com/wrekklol/Portal-Releases/blob/main/docs/GamePoint.md) instantly, without human-like movement.
+
+Example:
+```C#
+MouseMove_Instant(new GamePoint(500, 500));
+```
+Which will move the mouse to x coordinate 500 and y coordinate 500.  
+If you already have a match stored as a variable you could do:
+```C#
+MouseMove_Instant(MyMatchVar.Region.Center);
+```
+Which will move the mouse to the center of the match's region.
+
+### [Click]()
+This will send down and up input, and you can go into more details with the options parameter, like modifiers(ctrl, shift etc), delays and data(mouse wheel direction etc).  
+[InputOptions](https://github.com/wrekklol/Portal-Releases/blob/main/docs/InputOptions.md) can be implicitly converted to from an EKeys enum, like EKeys.LButton, which is the left mouse button.
+
+Example:
+```C#
+Click(EKeys.LButton);
+```
+Will send a left mouse button "click"(down and up input).
