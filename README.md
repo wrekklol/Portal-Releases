@@ -100,6 +100,8 @@ MouseMove_Instant(MyMatchVar.Region.Center);
 ```
 Which will move the mouse to the center of the match's region.
 
+<br/>
+
 ### [Click]()
 This will send down and up input, and you can go into more details with the options parameter, like modifiers(ctrl, shift etc), delays and data(mouse wheel direction etc).  
 [InputOptions](https://github.com/wrekklol/Portal-Releases/blob/main/docs/InputOptions.md) can be implicitly converted to from an EKeys enum, like EKeys.LButton, which is the left mouse button.
