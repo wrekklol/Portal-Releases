@@ -120,9 +120,13 @@ Key modifiers can also be specified using the [EKeyModifiers](https://github.com
 
 Example:
 ```C#
+SendInput(new InputOptions(EKeys.LButton));
+```
+Will send left mouse button down.
+```C#
 SendInput(new InputOptions(EKeys.LButton, EKeyState.Down, EKeyModifiers.Shift | EKeyModifiers.Control));
 ```
-Will send a left mouse button down while holding Shift and Control modifier keys.  
+Will send left mouse button down while holding Shift and Control modifier keys.  
 Scrolling can be done like this:
 ```C#
 SendInput(new InputOptions(EKeys.WButton, EKeyState.Down, InData: 1));
