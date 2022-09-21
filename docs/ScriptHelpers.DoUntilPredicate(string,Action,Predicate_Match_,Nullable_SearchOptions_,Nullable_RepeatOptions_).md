@@ -32,4 +32,17 @@ public static (Portal.Detection.Match? Match,bool bPredicateResult) DoUntilPredi
 
 #### Returns
 [&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.ValueTuple 'System.ValueTuple')[Match](Match.md 'Portal.Detection.Match')[,](https://docs.microsoft.com/en-us/dotnet/api/System.ValueTuple 'System.ValueTuple')[System.Boolean](https://docs.microsoft.com/en-us/dotnet/api/System.Boolean 'System.Boolean')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.ValueTuple 'System.ValueTuple')  
-Returns the first or the best match found depending on search options, and the predicate result.
+Returns the best match found, and the predicate result.
+
+### Example
+Example usage:  
+  
+```csharp  
+int MyVar = 0;  
+var (MatchFound, bPredicateResult) = DoUntilPredicate("MyTemplateName", () =>  
+{  
+    MyVar++;  
+}, match => match != null && MyVar > 5, new GameRegion(0, 0, 1920, 1080), new RepeatOptions(100, 0));  
+```  
+The above tries to find the template "MyTemplateName" until the predicate is true, which it is when a match is found and MyVar is greather than 5.  
+It has [SearchOptions](SearchOptions.md 'Portal.Detection.SearchOptions') of a default screen resolution, and [RepeatOptions](RepeatOptions.md 'Portal.Detection.RepeatOptions') that says it shall repeat 100 times with 0ms between each try, stopping when the predicate is true.

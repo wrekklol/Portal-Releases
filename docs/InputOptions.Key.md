@@ -10,4 +10,4 @@ public Portal.Input.EKeys Key { get; set; }
 ```
 
 #### Property Value
-[Portal.Input.EKeys](https://docs.microsoft.com/en-us/dotnet/api/Portal.Input.EKeys 'Portal.Input.EKeys')
+[EKeys](EKeys.md 'Portal.Input.EKeys')

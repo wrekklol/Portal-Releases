@@ -6,7 +6,7 @@
 Waits until the specified predicate is true.
 
 ```csharp
-public static (System.Collections.Generic.List<Portal.Detection.Match> Match,bool bPredicateResult) WaitUntilPredicateMulti(string InTemplateName, System.Predicate<System.Collections.Generic.List<Portal.Detection.Match>> InPredicate, System.Nullable<Portal.Detection.SearchOptions> InSearchOptions=null, System.Nullable<Portal.Detection.RepeatOptions> InRepeatOptions=null);
+public static (System.Collections.Generic.List<Portal.Detection.Match>? Match,bool bPredicateResult) WaitUntilPredicateMulti(string InTemplateName, System.Predicate<System.Collections.Generic.List<Portal.Detection.Match>?> InPredicate, System.Nullable<Portal.Detection.SearchOptions> InSearchOptions=null, System.Nullable<Portal.Detection.RepeatOptions> InRepeatOptions=null);
 ```
 #### Parameters
 
@@ -28,4 +28,13 @@ public static (System.Collections.Generic.List<Portal.Detection.Match> Match,boo
 
 #### Returns
 [&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.ValueTuple 'System.ValueTuple')[System.Collections.Generic.List&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')[Match](Match.md 'Portal.Detection.Match')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')[,](https://docs.microsoft.com/en-us/dotnet/api/System.ValueTuple 'System.ValueTuple')[System.Boolean](https://docs.microsoft.com/en-us/dotnet/api/System.Boolean 'System.Boolean')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.ValueTuple 'System.ValueTuple')  
-Returns all matches found depending on search options, and the predicate result.
+Returns all matches found, and the predicate result.
+
+### Example
+Example usage:  
+  
+```csharp  
+var (MatchesFound, bPredicateResult) = WaitUntilPredicateMulti("MyTemplateName", matches => matches != null, new GameRegion(0, 0, 1920, 1080), new RepeatOptions(100, 0));  
+```  
+The above tries to find the template "MyTemplateName" until the predicate is true, which it is when matches are found.  
+It has [SearchOptions](SearchOptions.md 'Portal.Detection.SearchOptions') of a default screen resolution, and [RepeatOptions](RepeatOptions.md 'Portal.Detection.RepeatOptions') that says it shall repeat 100 times with 0ms between each try, stopping when the predicate is true.

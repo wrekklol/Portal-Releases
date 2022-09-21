@@ -1,0 +1,2244 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Portal</name>
+    </assembly>
+    <members>
+        <member name="T:Portal.App">
+            <exclude/>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:Portal.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:Portal.Detection.Capture.DirectImageCapture.Device">
+            <summary>
+            The current device being duplicated.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="P:Portal.Detection.Capture.DirectImageCapture.DuplicatedOutput">
+            <summary>
+            The desktop duplication interface.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="P:Portal.Detection.Capture.DirectImageCapture.StagingTexture">
+            <summary>
+            The texture used to copy the pixel data from the desktop to the destination image.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="P:Portal.Detection.Capture.DirectImageCapture.BackingTexture">
+            <summary>
+            The texture used exclusively to be a backing texture when capturing the cursor shape.
+            This texture will always hold only the desktop texture, without the cursor.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="P:Portal.Detection.Capture.DirectImageCapture.MajorCrashHappened">
+            <summary>
+            Flag that holds the information whether the previous capture had a major crash.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="F:Portal.Detection.Capture.WindowEnumerationHelper.GetAncestorFlags.GetParent">
+            <summary>
+            Retrieves the parent window. This does not include the owner, as it does with the GetParent function.
+            </summary>
+        </member>
+        <member name="F:Portal.Detection.Capture.WindowEnumerationHelper.GetAncestorFlags.GetRoot">
+            <summary>
+            Retrieves the root window by walking the chain of parent windows.
+            </summary>
+        </member>
+        <member name="F:Portal.Detection.Capture.WindowEnumerationHelper.GetAncestorFlags.GetRootOwner">
+            <summary>
+            Retrieves the owned root window by walking the chain of parent and owner windows returned by GetParent.
+            </summary>
+        </member>
+        <member name="T:Portal.Detection.ImageDetection">
+            <summary>
+            Functions for detecting an image(<see cref="T:Portal.Detection.Template"/>) on the screen.
+            
+            There are functions in <see cref="T:Portal.Utility.ScriptHelpers"/> which should be used instead of these functions, as these are only intended to be "base" functions to find templates.
+            </summary>
+        </member>
+        <member name="M:Portal.Detection.ImageDetection.FindBestMatch(Portal.Detection.Template,Portal.Detection.SearchOptions)">
+            <summary>
+            Captures a region and tries to compare a template to it.
+            </summary>
+            <param name="InTemplate">Template to search for.</param>
+            <param name="InSearchOptions">Options to search with.</param>
+            <returns>Returns the best match found.</returns>
+        </member>
+        <member name="M:Portal.Detection.ImageDetection.FindMatches(Portal.Detection.Template,Portal.Detection.SearchOptions)">
+            <summary>
+            Captures a region and tries to compare a template to it.
+            </summary>
+            <param name="InTemplate">Template to search for.</param>
+            <param name="InSearchOptions">Options to search with.</param>
+            <returns>Returns all matches found with the specified search options.</returns>
+        </member>
+        <member name="T:Portal.Detection.Match">
+            <summary>
+            Result(s) of image detection is stored as a Match.
+            </summary>
+        </member>
+        <member name="P:Portal.Detection.Match.Region">
+            <summary> Region(coordinates) of match. </summary>
+        </member>
+        <member name="P:Portal.Detection.Match.Confidence">
+            <summary> Confidence of match. </summary>
+        </member>
+        <member name="M:Portal.Detection.Match.#ctor(Portal.GameRegion,System.Double)">
+            <summary>
+            Match constructor.
+            </summary>
+            <param name="InRegion"/>
+            <param name="InConfidence"/>
+        </member>
+        <member name="M:Portal.Detection.Match.Draw(System.Int32,System.String)">
+            <summary>
+            Draws the image detection result(match) on the screen.
+            </summary>
+            <remarks>
+            See <see cref="M:Portal.GUI.Overlay.Draw(System.Windows.UIElement,System.Int32,System.String)"/> for more information.
+            </remarks>
+            <param name="InDuration"/>
+            <param name="InID"/>
+        </member>
+        <member name="M:Portal.Detection.Match.Click(System.Int32,System.Boolean)">
+            <summary>
+            Moves the mouse to the center of the result(match), and clicks.
+            </summary>
+            <remarks>
+            See <see cref="M:Portal.Input.InputManager.SendInput(Portal.Input.InputOptions)"/> for more information
+            </remarks>
+            <param name="InReleaseDelay"/>
+            <param name="InbRightClick"/>
+        </member>
+        <member name="M:Portal.Detection.Match.ToString">
+            <summary> Overridden ToString function. </summary>
+            <returns> Output: (<see cref="P:Portal.Detection.Match.Region"/>, <see cref="P:Portal.Detection.Match.Confidence"/>) </returns>
+        </member>
+        <member name="T:Portal.Detection.RepeatOptions">
+            <summary>
+            Repeat options for image detection.
+            </summary>
+            <example>
+            Usage:
+            <code>
+                RepeatOptions MyRepeatOptions = new(100, 50);
+            </code>
+            Default values can also be used.
+            Example:
+            <code>
+                RepeatOptions MyRepeatOptions = RepeatOptions.Default; // Translates to new(1, 0);
+                RepeatOptions MyRepeatOptions = RepeatOptions.LowDelay; // Translates to new(3, 50);
+                RepeatOptions MyRepeatOptions = RepeatOptions.HighDelay; // Translates to new(3, 250);
+            </code>
+            </example>
+        </member>
+        <member name="P:Portal.Detection.RepeatOptions.MaxTries">
+            <summary> Maximum amount of tries. </summary>
+        </member>
+        <member name="P:Portal.Detection.RepeatOptions.DelayBetweenSearches">
+            <summary> Delay between each try. </summary>
+        </member>
+        <member name="M:Portal.Detection.RepeatOptions.#ctor(System.Int32,System.Int32)">
+            <summary>
+            RepeatOptions constructor.
+            </summary>
+            <param name="InMaxTries"/>
+            <param name="InDelayBetweenSearches"/>
+        </member>
+        <member name="M:Portal.Detection.RepeatOptions.ToString">
+            <summary> Overridden ToString function. </summary>
+            <returns> Output: (<see cref="P:Portal.Detection.RepeatOptions.MaxTries"/>, <see cref="P:Portal.Detection.RepeatOptions.DelayBetweenSearches"/>) </returns>
+        </member>
+        <member name="T:Portal.Detection.SearchOptions">
+            <summary>
+            Search options for image detection.
+            Default search options are found in config.ini.
+            </summary>
+            <example>
+            Usage:
+            <code>
+                SearchOptions MySearchOptions = new(new(0, 0, 1920, 1080));
+                SearchOptions MySearchOptions = new(new(0, 0, 1920, 1080), 0.80, CCORR, 3);
+            </code>
+            Can also be created from a GameRegion.
+            Example:
+            <code>
+                SearchOptions MySearchOptions = new GameRegion(0, 0, 1920, 1080);
+            </code>
+            </example>
+        </member>
+        <member name="P:Portal.Detection.SearchOptions.Region">
+            <summary> Search region. </summary>
+        </member>
+        <member name="P:Portal.Detection.SearchOptions.Threshold">
+            <summary> Search threshold. </summary>
+        </member>
+        <member name="P:Portal.Detection.SearchOptions.Method">
+            <summary> Search method. <br/> See <see cref="T:Portal.Detection.Template"/> remarks. </summary>
+        </member>
+        <member name="P:Portal.Detection.SearchOptions.ImageType">
+            <summary> Search image type. <br/> See <see cref="T:Portal.Detection.Template"/> remarks. </summary>
+        </member>
+        <member name="P:Portal.Detection.SearchOptions.FramesToSearch">
+            <summary> Amount of frames to search for template. <br/> See <see cref="T:Portal.Detection.Template"/> remarks. </summary>
+        </member>
+        <member name="M:Portal.Detection.SearchOptions.#ctor(Portal.GameRegion,System.Double,OpenCvSharp.TemplateMatchModes,OpenCvSharp.ImreadModes,System.Int32)">
+            <summary>
+            SearchOptions constructor.
+            </summary>
+            <param name="InRegion"/>
+            <param name="InThreshold"/>
+            <param name="InMethod"/>
+            <param name="InImageType"/>
+            <param name="InFramesToSearch"/>
+        </member>
+        <member name="M:Portal.Detection.SearchOptions.op_Implicit(Portal.GameRegion)~Portal.Detection.SearchOptions">
+            <summary> Cast operator. <br/> Allows you to cast a GameRegion to SearchOptions. <br/> See <see cref="T:Portal.Detection.SearchOptions"/> for more information. </summary>
+        </member>
+        <member name="M:Portal.Detection.SearchOptions.ToString">
+            <summary> Overridden ToString function. </summary>
+            <returns> Output: (<see cref="P:Portal.Detection.SearchOptions.Region"/>, <see cref="P:Portal.Detection.SearchOptions.Threshold"/>, <see cref="P:Portal.Detection.SearchOptions.Method"/>, <see cref="P:Portal.Detection.SearchOptions.ImageType"/>)</returns>
+        </member>
+        <member name="T:Portal.Detection.Template">
+            <summary>
+            Template for image detection.
+            </summary>
+            <remarks>
+            Templates are automatically imported from your "Templates" folder in your module folder when the app is started, and when you press the Reload button.
+            
+            When naming your templates in your "Templates" folder, you can give them a suffix with a method, threshold and image type override. For example, if you name your template filename "Awesome Template", you can suffix it with "%SQDIFF+85+COLOR%" (so it becomes "Awesome Template %SQDIFF+85+COLOR%"), which will set the method to SQDIFF, threshold to 0.85 and image type to COLOR.
+            You don't need to override everything at once, for example "%SQDIFF+85%" is also valid, and "%SQDIFF%" as well.
+             
+            There are three different methods - CCOEFF, CCORR and SQDIFF.
+            Each has their advantages and disadvantages. For example CCOEFF is slow, but has good accuracy.
+            Valid values are:
+            CCOEFF
+            CCORR
+            SQDIFF
+            1 (which translates to CCOEFF)
+            2 (which translates to CCORR)
+            3 (which translates to SQDIFF)
+            
+            There are two different image types - GRAY and COLOR.
+            GRAY is way faster, but is a little bit less accurate.
+            Valid values are:
+            GRAY
+            COLOR
+            1 (which translates to GRAY)
+            2 (which translates to COLOR)
+            <br/>
+            Masks are generated from your (image)file's alpha channel.
+            </remarks>
+        </member>
+        <member name="P:Portal.Detection.Template.Name">
+            <summary> Template name. </summary>
+        </member>
+        <member name="P:Portal.Detection.Template.Image">
+            <summary> Template image matrix. </summary>
+        </member>
+        <member name="P:Portal.Detection.Template.Mask">
+            <summary> Template mask matrix from image alpha. <br/> See <see cref="T:Portal.Detection.Template"/> remarks. </summary>
+        </member>
+        <member name="P:Portal.Detection.Template.Threshold">
+            <summary> Template threshold. </summary>
+        </member>
+        <member name="P:Portal.Detection.Template.Method">
+            <summary> Template method. <br/> See <see cref="T:Portal.Detection.Template"/> remarks. </summary>
+        </member>
+        <member name="P:Portal.Detection.Template.ImageType">
+            <summary> Template image type. <br/> See <see cref="T:Portal.Detection.Template"/> remarks. </summary>
+        </member>
+        <member name="P:Portal.Detection.Template.bShouldOverride">
+            <summary> True if a suffix was added to your template filename. <br/> See <see cref="T:Portal.Detection.Template"/> remarks. </summary>
+        </member>
+        <member name="P:Portal.Detection.Template.Size">
+            <summary> Template size, which is set from image matrix size. </summary>
+        </member>
+        <member name="P:Portal.Detection.Template.W">
+            <summary> Template width, gets <see cref="P:Portal.GameSize.Width"/>. </summary>
+        </member>
+        <member name="P:Portal.Detection.Template.H">
+            <summary> Template height, gets <see cref="P:Portal.GameSize.Height"/>. </summary>
+        </member>
+        <member name="M:Portal.Detection.Template.#ctor(System.String,OpenCvSharp.Mat,OpenCvSharp.Mat,System.Double,OpenCvSharp.TemplateMatchModes,OpenCvSharp.ImreadModes,System.Boolean)">
+            <summary>
+            Template constructor.
+            </summary>
+            <param name="InName"/>
+            <param name="InImage"/>
+            <param name="InMask"/>
+            <param name="InThreshold"/>
+            <param name="InMethod"/>
+            <param name="InImageType"/>
+            <param name="InbShouldOverride"/>
+        </member>
+        <member name="M:Portal.Detection.Template.op_Implicit(System.String)~Portal.Detection.Template">
+            <summary> Cast operator. <br/> Allows you to cast a string to a Template from your "Templates" folder. </summary>
+        </member>
+        <member name="M:Portal.Detection.Template.ToString">
+            <summary> Overridden ToString function. </summary>
+            <returns> Output: (<see cref="P:Portal.Detection.Template.Name"/>, <see cref="P:Portal.Detection.Template.Threshold"/>, <see cref="P:Portal.Detection.Template.Method"/>, <see cref="P:Portal.Detection.Template.ImageType"/>) </returns>
+        </member>
+        <member name="T:Portal.GUI.GUI">
+            <exclude/>
+            <summary>
+            GUI
+            </summary>
+        </member>
+        <member name="M:Portal.GUI.GUI.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Portal.GUI.Overlay">
+            <exclude/>
+            <summary>
+            Overlay
+            </summary>
+        </member>
+        <member name="M:Portal.GUI.Overlay.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Portal.GUI.BehaviourButtonWidget">
+            <exclude/>
+            <summary>
+            BehaviourButtonWidget
+            </summary>
+        </member>
+        <member name="M:Portal.GUI.BehaviourButtonWidget.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Portal.GUI.ReloadButtonWidget">
+            <exclude/>
+            <summary>
+            ReloadButtonWidget
+            </summary>
+        </member>
+        <member name="M:Portal.GUI.ReloadButtonWidget.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Portal.GUI.UpdateAppButtonWidget">
+            <exclude/>
+            <summary>
+            UpdateAppButtonWidget
+            </summary>
+        </member>
+        <member name="M:Portal.GUI.UpdateAppButtonWidget.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Portal.GUI.ConsoleWidget">
+            <exclude/>
+            <summary>
+            ConsoleWidget
+            </summary>
+        </member>
+        <member name="M:Portal.GUI.ConsoleWidget.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Portal.GUI.SettingsWidget">
+            <exclude/>
+            <summary>
+            SettingsWidget
+            </summary>
+        </member>
+        <member name="M:Portal.GUI.SettingsWidget.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Portal.Source.GUI.Widgets.DebugVarsWidget">
+            <summary>
+            DebugVarsWidget
+            </summary>
+        </member>
+        <member name="M:Portal.Source.GUI.Widgets.DebugVarsWidget.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Portal.Input.EKeyState">
+            <summary>
+            Key state.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeyState.None">
+            <summary/>
+        </member>
+        <member name="F:Portal.Input.EKeyState.Up">
+            <summary/>
+        </member>
+        <member name="F:Portal.Input.EKeyState.Down">
+            <summary/>
+        </member>
+        <member name="T:Portal.Input.EKeyModifiers">
+            <summary>
+            Key modifiers.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeyModifiers.None">
+            <summary/>
+        </member>
+        <member name="F:Portal.Input.EKeyModifiers.Alt">
+            <summary/>
+        </member>
+        <member name="F:Portal.Input.EKeyModifiers.Control">
+            <summary/>
+        </member>
+        <member name="F:Portal.Input.EKeyModifiers.Shift">
+            <summary/>
+        </member>
+        <member name="F:Portal.Input.EKeyModifiers.Windows">
+            <summary/>
+        </member>
+        <member name="T:Portal.Input.EKeys">
+            <summary>
+            Keys.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Modifiers">
+            <summary>
+            The bitmask to extract modifiers from a key value.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.None">
+            <summary>
+            No key pressed.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.LButton">
+            <summary>
+            The left mouse button.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.RButton">
+            <summary>
+            The right mouse button.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.WButton">
+            <summary>
+            The Scroll Wheel key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Cancel">
+            <summary>
+            The CANCEL key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.MButton">
+            <summary>
+            The middle mouse button (three-button mouse).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.XButton1">
+            <summary>
+            The first x mouse button (five-button mouse).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.XButton2">
+            <summary>
+            The second x mouse button (five-button mouse).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Back">
+            <summary>
+            The BACKSPACE key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Tab">
+            <summary>
+            The TAB key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.LineFeed">
+            <summary>
+            The LINEFEED key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Clear">
+            <summary>
+            The CLEAR key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Return">
+            <summary>
+            The RETURN key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Enter">
+            <summary>
+            The ENTER key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Shift">
+            <summary>
+            The SHIFT key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Control">
+            <summary>
+            The CTRL key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Alt">
+            <summary>
+            The ALT key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Pause">
+            <summary>
+            The PAUSE key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Capital">
+            <summary>
+            The CAPS LOCK key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.CapsLock">
+            <summary>
+            The CAPS LOCK key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.KanaMode">
+            <summary>
+            The IME Kana mode key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.HanguelMode">
+            <summary>
+            The IME Hanguel mode key. (maintained for compatibility; use HangulMode)
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.HangulMode">
+            <summary>
+            The IME Hangul mode key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.JunjaMode">
+            <summary>
+            The IME Junja mode key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.FinalMode">
+            <summary>
+            The IME final mode key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.HanjaMode">
+            <summary>
+            The IME Hanja mode key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.KanjiMode">
+            <summary>
+            The IME Kanji mode key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Escape">
+            <summary>
+            The ESC key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.IMEConvert">
+            <summary>
+            The IME convert key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.IMENonconvert">
+            <summary>
+            The IME nonconvert key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.IMEAccept">
+            <summary>
+            The IME accept key, replaces System.Windows.Forms.Keys.IMEAceept.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.IMEAceept">
+            <summary>
+            The IME accept key. Obsolete, use System.Windows.Forms.Keys.IMEAccept instead.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.IMEModeChange">
+            <summary>
+            The IME mode change key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Space">
+            <summary>
+            The SPACEBAR key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Prior">
+            <summary>
+            The PAGE UP key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.PageUp">
+            <summary>
+            The PAGE UP key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Next">
+            <summary>
+            The PAGE DOWN key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.PageDown">
+            <summary>
+            The PAGE DOWN key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.End">
+            <summary>
+            The END key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Home">
+            <summary>
+            The HOME key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Left">
+            <summary>
+            The LEFT ARROW key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Up">
+            <summary>
+            The UP ARROW key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Right">
+            <summary>
+            The RIGHT ARROW key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Down">
+            <summary>
+            The DOWN ARROW key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Select">
+            <summary>
+            The SELECT key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Print">
+            <summary>
+            The PRINT key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Execute">
+            <summary>
+            The EXECUTE key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Snapshot">
+            <summary>
+            The PRINT SCREEN key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.PrintScreen">
+            <summary>
+            The PRINT SCREEN key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Insert">
+            <summary>
+            The INS key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Delete">
+            <summary>
+            The DEL key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Help">
+            <summary>
+            The HELP key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.D0">
+            <summary>
+            The 0 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.D1">
+            <summary>
+            The 1 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.D2">
+            <summary>
+            The 2 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.D3">
+            <summary>
+            The 3 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.D4">
+            <summary>
+            The 4 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.D5">
+            <summary>
+            The 5 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.D6">
+            <summary>
+            The 6 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.D7">
+            <summary>
+            The 7 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.D8">
+            <summary>
+            The 8 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.D9">
+            <summary>
+            The 9 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.A">
+            <summary>
+            The A key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.B">
+            <summary>
+            The B key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.C">
+            <summary>
+            The C key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.D">
+            <summary>
+            The D key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.E">
+            <summary>
+            The E key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.F">
+            <summary>
+            The F key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.G">
+            <summary>
+            The G key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.H">
+            <summary>
+            The H key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.I">
+            <summary>
+            The I key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.J">
+            <summary>
+            The J key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.K">
+            <summary>
+            The K key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.L">
+            <summary>
+            The L key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.M">
+            <summary>
+            The M key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.N">
+            <summary>
+            The N key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.O">
+            <summary>
+            The O key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.P">
+            <summary>
+            The P key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Q">
+            <summary>
+            The Q key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.R">
+            <summary>
+            The R key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.S">
+            <summary>
+            The S key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.T">
+            <summary>
+            The T key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.U">
+            <summary>
+            The U key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.V">
+            <summary>
+            The V key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.W">
+            <summary>
+            The W key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.X">
+            <summary>
+            The X key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Y">
+            <summary>
+            The Y key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Z">
+            <summary>
+            The Z key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.LWin">
+            <summary>
+            The left Windows logo key (Microsoft Natural Keyboard).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.RWin">
+            <summary>
+            The right Windows logo key (Microsoft Natural Keyboard).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Apps">
+            <summary>
+            The application key (Microsoft Natural Keyboard).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Sleep">
+            <summary>
+            The computer sleep key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.NumPad0">
+            <summary>
+            The 0 key on the numeric keypad.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.NumPad1">
+            <summary>
+            The 1 key on the numeric keypad.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.NumPad2">
+            <summary>
+            The 2 key on the numeric keypad.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.NumPad3">
+            <summary>
+            The 3 key on the numeric keypad.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.NumPad4">
+            <summary>
+            The 4 key on the numeric keypad.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.NumPad5">
+            <summary>
+            The 5 key on the numeric keypad.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.NumPad6">
+            <summary>
+            The 6 key on the numeric keypad.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.NumPad7">
+            <summary>
+            The 7 key on the numeric keypad.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.NumPad8">
+            <summary>
+            The 8 key on the numeric keypad.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.NumPad9">
+            <summary>
+            The 9 key on the numeric keypad.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Multiply">
+            <summary>
+            The multiply key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Add">
+            <summary>
+            The add key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Separator">
+            <summary>
+            The separator key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Subtract">
+            <summary>
+            The subtract key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Decimal">
+            <summary>
+            The decimal key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Divide">
+            <summary>
+            The divide key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.F1">
+            <summary>
+            The F1 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.F2">
+            <summary>
+            The F2 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.F3">
+            <summary>
+            The F3 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.F4">
+            <summary>
+            The F4 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.F5">
+            <summary>
+            The F5 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.F6">
+            <summary>
+            The F6 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.F7">
+            <summary>
+            The F7 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.F8">
+            <summary>
+            The F8 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.F9">
+            <summary>
+            The F9 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.F10">
+            <summary>
+            The F10 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.F11">
+            <summary>
+            The F11 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.F12">
+            <summary>
+            The F12 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.F13">
+            <summary>
+            The F13 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.F14">
+            <summary>
+            The F14 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.F15">
+            <summary>
+            The F15 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.F16">
+            <summary>
+            The F16 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.F17">
+            <summary>
+            The F17 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.F18">
+            <summary>
+            The F18 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.F19">
+            <summary>
+            The F19 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.F20">
+            <summary>
+            The F20 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.F21">
+            <summary>
+            The F21 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.F22">
+            <summary>
+            The F22 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.F23">
+            <summary>
+            The F23 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.F24">
+            <summary>
+            The F24 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.NumLock">
+            <summary>
+            The NUM LOCK key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Scroll">
+            <summary>
+            The SCROLL LOCK key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.LShift">
+            <summary>
+            The left SHIFT key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.RShift">
+            <summary>
+            The right SHIFT key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.LControl">
+            <summary>
+            The left CTRL key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.RControl">
+            <summary>
+            The right CTRL key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.LAlt">
+            <summary>
+            The left ALT key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.RAlt">
+            <summary>
+            The right ALT key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.BrowserBack">
+            <summary>
+            The browser back key (Windows 2000 or later).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.BrowserForward">
+            <summary>
+            The browser forward key (Windows 2000 or later).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.BrowserRefresh">
+            <summary>
+            The browser refresh key (Windows 2000 or later).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.BrowserStop">
+            <summary>
+            The browser stop key (Windows 2000 or later).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.BrowserSearch">
+            <summary>
+            The browser search key (Windows 2000 or later).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.BrowserFavorites">
+            <summary>
+            The browser favorites key (Windows 2000 or later).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.BrowserHome">
+            <summary>
+            The browser home key (Windows 2000 or later).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.VolumeMute">
+            <summary>
+            The volume mute key (Windows 2000 or later).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.VolumeDown">
+            <summary>
+            The volume down key (Windows 2000 or later).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.VolumeUp">
+            <summary>
+            The volume up key (Windows 2000 or later).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.MediaNextTrack">
+            <summary>
+            The media next track key (Windows 2000 or later).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.MediaPreviousTrack">
+            <summary>
+            The media previous track key (Windows 2000 or later).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.MediaStop">
+            <summary>
+            The media Stop key (Windows 2000 or later).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.MediaPlayPause">
+            <summary>
+            The media play pause key (Windows 2000 or later).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.LaunchMail">
+            <summary>
+            The launch mail key (Windows 2000 or later).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.SelectMedia">
+            <summary>
+            The select media key (Windows 2000 or later).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.LaunchApplication1">
+            <summary>
+            The start application one key (Windows 2000 or later).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.LaunchApplication2">
+            <summary>
+            The start application two key (Windows 2000 or later).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.OemSemicolon">
+            <summary>
+            The OEM Semicolon key on a US standard keyboard (Windows 2000 or later).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Oem1">
+            <summary>
+            The OEM 1 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Oemplus">
+            <summary>
+            The OEM plus key on any country/region keyboard (Windows 2000 or later).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Oemcomma">
+            <summary>
+            The OEM comma key on any country/region keyboard (Windows 2000 or later).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.OemMinus">
+            <summary>
+            The OEM minus key on any country/region keyboard (Windows 2000 or later).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.OemPeriod">
+            <summary>
+            The OEM period key on any country/region keyboard (Windows 2000 or later).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.OemQuestion">
+            <summary>
+            The OEM question mark key on a US standard keyboard (Windows 2000 or later).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Oem2">
+            <summary>
+            The OEM 2 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Oemtilde">
+            <summary>
+            The OEM tilde key on a US standard keyboard (Windows 2000 or later).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Oem3">
+            <summary>
+            The OEM 3 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.OemOpenBrackets">
+            <summary>
+            The OEM open bracket key on a US standard keyboard (Windows 2000 or later).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Oem4">
+            <summary>
+            The OEM 4 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.OemPipe">
+            <summary>
+            The OEM pipe key on a US standard keyboard (Windows 2000 or later).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Oem5">
+            <summary>
+            The OEM 5 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.OemCloseBrackets">
+            <summary>
+            The OEM close bracket key on a US standard keyboard (Windows 2000 or later).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Oem6">
+            <summary>
+            The OEM 6 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.OemQuotes">
+            <summary>
+            The OEM singled/double quote key on a US standard keyboard (Windows 2000 or later).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Oem7">
+            <summary>
+            The OEM 7 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Oem8">
+            <summary>
+            The OEM 8 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.OemBackslash">
+            <summary>
+            The OEM angle bracket or backslash key on the RT 102 key keyboard (Windows 2000 or later).
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Oem102">
+            <summary>
+            The OEM 102 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.ProcessKey">
+            <summary>
+            The PROCESS KEY key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Packet">
+            <summary>
+            Used to pass Unicode characters as if they were keystrokes. The Packet key value is the low word of a 32-bit virtual-key value used for non-keyboard input methods.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Attn">
+            <summary>
+            The ATTN key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Crsel">
+            <summary>
+            The CRSEL key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Exsel">
+            <summary>
+            The EXSEL key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.EraseEof">
+            <summary>
+            The ERASE EOF key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Play">
+            <summary>
+            The PLAY key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Zoom">
+            <summary>
+            The ZOOM key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.NoName">
+            <summary>
+            A constant reserved for future use.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.Pa1">
+            <summary>
+            The PA1 key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.OemClear">
+            <summary>
+            The CLEAR key.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.KeyCode">
+            <summary>
+            The bitmask to extract modifiers from a key value.
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.ShiftM">
+            <summary>
+            The SHIFT modifier key. NOT USED
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.ControlM">
+            <summary>
+            The CTRL modifier key. NOT USED
+            </summary>
+        </member>
+        <member name="F:Portal.Input.EKeys.AltM">
+            <summary>
+            The ALT modifier key. NOT USED
+            </summary>
+        </member>
+        <member name="M:Portal.Input.InputManager.SendInput(Portal.Input.InputOptions)">
+            <summary>
+            Sends input to the system, synchronously.
+            </summary>
+            <param name="InOptions">Input to send.</param>
+        </member>
+        <member name="M:Portal.Input.InputManager.SendInput_Async(Portal.Input.InputOptions,System.Action)">
+            <summary>
+            Sends input to the system, asynchronously.
+            </summary>
+            <param name="InOptions">Input to send.</param>
+            <param name="InOnInputPressed">Action to call when input has been sent.</param>
+        </member>
+        <member name="M:Portal.Input.InputManager.Click(Portal.Input.InputOptions)">
+            <summary>
+            Sends down and up input.
+            </summary>
+            <param name="InOptions"/>
+        </member>
+        <member name="M:Portal.Input.InputManager.MouseMove(Portal.GamePoint)">
+            <inheritdoc cref="M:Portal.Input.InputManager.MouseMove(Portal.GamePoint,System.Double,System.Double,System.Double,System.Double,Portal.GamePoint)"/>
+        </member>
+        <member name="M:Portal.Input.InputManager.MouseMove(Portal.GamePoint,System.Double)">
+            <inheritdoc cref="M:Portal.Input.InputManager.MouseMove(Portal.GamePoint,System.Double,System.Double,System.Double,System.Double,Portal.GamePoint)"/>
+        </member>
+        <member name="M:Portal.Input.InputManager.MouseMove(Portal.GamePoint,System.Double,System.Double,System.Double,System.Double)">
+            <inheritdoc cref="M:Portal.Input.InputManager.MouseMove(Portal.GamePoint,System.Double,System.Double,System.Double,System.Double,Portal.GamePoint)"/>
+        </member>
+        <member name="M:Portal.Input.InputManager.MouseMove(Portal.GamePoint,System.Double,System.Double,System.Double,System.Double,Portal.GamePoint)">
+            <summary>
+            Moves the mouse from one point to another with human like movement.
+            </summary>
+            <param name="InDestination">Move destination.</param>
+            <param name="InSpeed">Speed of the movement.</param>
+            <param name="InGravity">Strength pulling the position towards the destination.</param>
+            <param name="InWind">Strength pulling the position in random directions.</param>
+            <param name="InTargetArea">Radius of area around the destination that should trigger slowing, prevents spiraling.</param>
+            <param name="InDestRange">Random destination offset.</param>
+        </member>
+        <member name="M:Portal.Input.InputManager.MouseMove_Async(Portal.GamePoint,System.Action)">
+            <inheritdoc cref="M:Portal.Input.InputManager.MouseMove_Async(Portal.GamePoint,System.Double,System.Double,System.Double,System.Double,Portal.GamePoint,System.Action)"/>
+        </member>
+        <member name="M:Portal.Input.InputManager.MouseMove_Async(Portal.GamePoint,System.Double,System.Action)">
+            <inheritdoc cref="M:Portal.Input.InputManager.MouseMove_Async(Portal.GamePoint,System.Double,System.Double,System.Double,System.Double,Portal.GamePoint,System.Action)"/>
+        </member>
+        <member name="M:Portal.Input.InputManager.MouseMove_Async(Portal.GamePoint,System.Double,System.Double,System.Double,System.Double,System.Action)">
+            <inheritdoc cref="M:Portal.Input.InputManager.MouseMove_Async(Portal.GamePoint,System.Double,System.Double,System.Double,System.Double,Portal.GamePoint,System.Action)"/>
+        </member>
+        <member name="M:Portal.Input.InputManager.MouseMove_Async(Portal.GamePoint,System.Double,System.Double,System.Double,System.Double,Portal.GamePoint,System.Action)">
+            <summary>
+            Moves the mouse mouse from one point to another with human like movement.
+            </summary>
+            <param name="InDestination">Move destination.</param>
+            <param name="InSpeed">Speed of the movement.</param>
+            <param name="InGravity">Strength pulling the position towards the destination.</param>
+            <param name="InWind">Strength pulling the position in random directions.</param>
+            <param name="InTargetArea">Radius of area around the destination that should trigger slowing, prevents spiraling.</param>
+            <param name="InDestRange">Random destination offset.</param>
+            <param name="OnMoveEnd">Action to be performed when the mouse reaches the destination.</param>
+        </member>
+        <member name="M:Portal.Input.InputManager.MouseMove_Instant(Portal.GamePoint,Portal.GamePoint)">
+            <summary>
+            Teleports the mouse to a (random) location within a range of the destination.
+            </summary>
+            <param name="InDestination">Move destination.</param>
+            <param name="InDestRange">Random destination offset.</param>
+        </member>
+        <member name="M:Portal.Input.InputManager.HumanWindMouse_Points(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Generates points of human like mouse movement.
+            </summary>
+            <param name="InStartX">The starting x position of the mouse.</param>
+            <param name="InStartY">The starting y position of the mouse.</param>
+            <param name="InEndX">The x coordinate of the end point of the movement.</param>
+            <param name="InEndY">The y-coordinate of the end point.</param>
+            <param name="InGravity">Strength pulling the position towards the destination.</param>
+            <param name="InWind">Strength pulling the position in random directions.</param>
+            <param name="InTargetArea">Radius of area around the destination that should trigger slowing, prevents spiraling.</param>
+            <returns> List with Tuple of points. </returns>
+            <exclude/>
+        </member>
+        <member name="T:Portal.Input.InputOptions">
+            <summary>
+            Input options.
+            </summary>
+        </member>
+        <member name="P:Portal.Input.InputOptions.Key">
+            <summary> Key to send. </summary>
+        </member>
+        <member name="P:Portal.Input.InputOptions.KeyState">
+            <summary> Key state to send key with (Up or Down). </summary>
+        </member>
+        <member name="P:Portal.Input.InputOptions.Modifiers">
+            <summary> Modifiers to send key with. </summary>
+        </member>
+        <member name="P:Portal.Input.InputOptions.ReleaseDelay">
+            <summary> Delay before key release. </summary>
+        </member>
+        <member name="P:Portal.Input.InputOptions.PressDelay">
+            <summary> Delay before key press. </summary>
+        </member>
+        <member name="P:Portal.Input.InputOptions.bAutoReleaseModifiers">
+            <summary> If true, extra events with release input modifiers will be sent. </summary>
+        </member>
+        <member name="P:Portal.Input.InputOptions.Data">
+            <summary> Extra data to send, like scroll wheel delta, or which mouse X button was pressed. </summary>
+        </member>
+        <member name="M:Portal.Input.InputOptions.#ctor(Portal.Input.EKeys,Portal.Input.EKeyState,Portal.Input.EKeyModifiers,System.Int32,System.Int32,System.Boolean,System.Nullable{System.UInt32})">
+            <summary>
+            SendInputOptions that takes a key, modifiers, a press delay, a release delay, auto release info and extra data.
+            </summary>
+            <param name="InKey"/>
+            <param name="InKeyState"/>
+            <param name="InModifiers"/>
+            <param name="InReleaseDelay"/>
+            <param name="InPressDelay"/>
+            <param name="InbAutoReleaseModifiers"/>
+            <param name="InData"/>
+        </member>
+        <member name="M:Portal.Input.InputOptions.IsMouseInput">
+            <summary>
+            Checks if this is mouse input.
+            </summary>
+            <returns>True if <see cref="P:Portal.Input.InputOptions.Key"/> is <see cref="F:Portal.Input.EKeys.LButton"/> or <see cref="F:Portal.Input.EKeys.RButton"/> or <see cref="F:Portal.Input.EKeys.XButton1"/> or <see cref="F:Portal.Input.EKeys.XButton2"/> or <see cref="F:Portal.Input.EKeys.MButton"/></returns>
+        </member>
+        <member name="M:Portal.Input.InputOptions.op_Implicit(Portal.Input.EKeys)~Portal.Input.InputOptions">
+            <summary> Cast operator. <br/> Allows you to cast <see cref="T:Portal.Input.EKeys"/> to input options. </summary>
+        </member>
+        <member name="M:Portal.Input.InputOptions.op_Implicit(System.String)~Portal.Input.InputOptions">
+            <summary> Cast operator. 
+            Allows you to cast an input binding string to input options.
+            </summary>
+            <example>
+            Example of how to create input options from a string:
+            <code>
+                InputOptions MyOptions = "c+d+u+c+rd100+pd50+rm1";
+            </code>
+            Which translates to:
+            <code> 
+                InputOptions MyOptions = new(EKeys.C, EKeyState.Down | EKeyState.Up, EKeyModifiers.Control, 100, 50, true);
+            </code>
+            </example>
+            <remarks>
+            Order of string "arguments" is irrelevant except for the key, which has to be at the start.
+            It is case insensitive as well, so typing "DOWN" or "down" is the same.
+            
+            Valid values are:
+            Key codes from <see cref="T:Portal.Input.EKeys"/> enum
+            "down" or "d"
+            "up" or "u"
+            "control" or "c"
+            "alt" or "a"
+            "shift" or "s"
+            "pressdelay" or "pdelay" or "pd", with an integer like "pd50"
+            "releasedelay" or "rdelay" or "rd", with an integer like "rd50"
+            "autoreleasemodifiers" or "relmods" or "rm", with an (boolean)integer like "rm1"
+            "data", with an unsigned integer like "data1"
+            </remarks>
+        </member>
+        <member name="T:Portal.Scripting.IScriptBehaviour">
+            <summary>
+            This interface is what all behaviours should inherit from.
+            </summary>
+        </member>
+        <member name="P:Portal.Scripting.IScriptBehaviour.LoopAmount">
+            <summary> 
+            Amount of times behaviour(<see cref="M:Portal.Scripting.IScriptBehaviour.Run"/> function) will loop, can be overridden.
+            A value of -1 will loop infinitely.
+            
+            Default value is 1.
+            </summary>
+        </member>
+        <member name="M:Portal.Scripting.IScriptBehaviour.Init">
+            <summary> 
+            Initialization function, must be overridden.
+            
+            Gets called when its owning module is initializing.
+            </summary>
+        </member>
+        <member name="M:Portal.Scripting.IScriptBehaviour.Start">
+            <summary> 
+            Start function, must be overridden.
+            
+            Gets called when its behaviour is started.
+            </summary>
+        </member>
+        <member name="M:Portal.Scripting.IScriptBehaviour.Run">
+            <summary>
+            Run function, must be overridden.
+            
+            Gets called when its behaviour is running, for example by pressing the "Run Behaviour" button in the GUI.
+            </summary>
+        </member>
+        <member name="M:Portal.Scripting.IScriptBehaviour.Stop">
+            <summary> 
+            Stop function, must be overridden.
+            
+            Gets called when its behaviour is stopped.
+            </summary>
+        </member>
+        <member name="T:Portal.Scripting.ScriptModule">
+             <summary>
+             Module which contains scripted behaviours.
+             </summary>
+             <example>
+             There is an example of a module included, it is located in your Portal folder inside a folder called "Modules".
+             
+             To create a new module, simply create a new folder in your "Modules" folder, and create a file called "YourAwesomeModule.module", and a file called "YourAwesomeModule.include". 
+             
+             To create a behaviour, simply create a new folder in your new module folder, you can call it whatever you like, though "Behaviours" is recommended. Then create a file called "YourAwesomeBehaviour.cs", in which you need to create a class that inherits from <see cref="T:Portal.Scripting.IScriptBehaviour"/>, and has four functions called <see cref="M:Portal.Scripting.IScriptBehaviour.Init"/>, <see cref="M:Portal.Scripting.IScriptBehaviour.Start"/>, <see cref="M:Portal.Scripting.IScriptBehaviour.Run"/> and <see cref="M:Portal.Scripting.IScriptBehaviour.Stop"/>.
+             
+             Example behaviour file:
+             <code>
+             public class ExampleBehaviour : IScriptBehaviour
+             {
+                 public int LoopAmount => 3;
+            
+            
+            
+                 public void Init()
+                 {
+                     Print("Hello from Behaviour Initialization!");
+                 }
+                 
+                 public void Start()
+                 {
+                     Print("Hello from Behaviour Start!");
+                 }
+            
+                 public void Run()
+                 {
+                     Print("Hello from Behaviour Run!");
+            
+                     // Finds a template from your "Templates" folder in your module folder, and clicks it!
+                     //WaitUntilFound("Example Template")?.Draw().Click();
+                 }
+                 
+                 public void Stop()
+                 {
+                     Print("Hello from Behaviour Stop!");
+                 }
+             }
+             </code>
+             
+             Then you just need to add the new behaviour to your .module file. To do this, just add two lines:
+             <code>
+                 #load "Behaviours\YourAwesomeBehaviour.cs"
+                 LoadBehaviour(typeof(YourAwesomeBehaviour));
+             </code>
+             
+             That's it! Now you can run your module from the GUI, but you should probably put something in the functions you created first.
+             
+             Behaviours are compiled with some default includes (<c>using NamespaceHere;</c>). If more is needed, put them into your .include file without the "using" part and without the semi colon.
+             Example .include file:
+             <code>
+                 System.Threading
+                 System.Reflection
+                 ThisCustomNamespaceIsIncluded1
+                 ThisCustomNamespaceIsIncluded2
+                 ThisCustomNamespaceIsIncluded3
+             </code>
+             Those namespaces will now get included on compilation so your behaviours can use them.
+             
+             Some things are also statically included, which means you can use their variables and functions without having to prefix them with their type. 
+             So for example you can just type:
+             <code>
+                 Print("Hello World!");
+             </code>
+             Without having to type
+             <code>
+                 Printer.Print("Hello World!");
+             </code>
+             </example>
+             <remarks>
+             Default includes of a CSharp Module:
+             <code>
+                 private readonly string[] CommonIncludes =
+                 {
+                    "Portal",
+                    "Portal.Globals",
+                    "Portal.Config",
+                    "Portal.Printer",
+                    "Portal.Scripting",
+                    "Portal.GameInfo",
+                    "Portal.Utility", "Portal.Utility.ArrayHelpers", "Portal.Utility.DebugHelpers", "Portal.Utility.DelegateHelpers", "Portal.Utility.MathHelpers", "Portal.Utility.ScriptHelpers", "Portal.Utility.ThreadHelpers",
+                    "Portal.Input", "Portal.Input.Input",
+                    "Portal.Detection", "OpenCvSharp",
+                    "System", "System.Linq", "System.Drawing", "System.Collections.Generic"
+                 };
+             </code>
+             </remarks>
+        </member>
+        <member name="M:Portal.Scripting.ScriptModule.LoadBehaviour(System.Type)">
+            <summary>
+            Call this in your .module file for each behaviour you want to load.
+            Remember to put <c>#load "Behaviours\YourBehaviour.cs"</c> before calling this function to load the file first.
+            </summary>
+            <param name="InBehaviour"/>
+        </member>
+        <member name="T:Portal.Scripting.Visual.VisualScriptEditor">
+            <summary>
+            VisualScriptEditor
+            </summary>
+        </member>
+        <member name="M:Portal.Scripting.Visual.VisualScriptEditor.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:Portal.GamePoint.X">
+            <summary>
+            X coordinate
+            </summary>
+        </member>
+        <member name="P:Portal.GamePoint.Y">
+            <summary>
+            Y coordinate
+            </summary>
+        </member>
+        <member name="M:Portal.GamePoint.IsWithin(Portal.GameRegion)">
+            <summary>
+            Checks if this GamePoint is within the specified region.
+            </summary>
+            <param name="InRegion">Region to check if the point is within.</param>
+        </member>
+        <member name="M:Portal.GamePoint.ToGameCoords">
+            <summary>
+            Converts the coordinates of this GamePoint to game coordinates.
+            </summary>
+        </member>
+        <member name="M:Portal.GamePoint.FromGameCoords">
+            <summary>
+            Converts the coordinates of this GamePoint to screen coordinates.
+            </summary>
+        </member>
+        <member name="P:Portal.GameRegion.Point">
+            <summary>
+            Struct with X and Y coordinate.
+            </summary>
+        </member>
+        <member name="P:Portal.GameRegion.Size">
+            <summary>
+            Struct with Width and Height.
+            </summary>
+        </member>
+        <member name="P:Portal.GameRegion.X">
+            <summary>
+            X coordinate.
+            </summary>
+        </member>
+        <member name="P:Portal.GameRegion.Y">
+            <summary>
+            Y coordinate.
+            </summary>
+        </member>
+        <member name="P:Portal.GameRegion.Width">
+            <summary>
+            Width.
+            </summary>
+        </member>
+        <member name="P:Portal.GameRegion.Height">
+            <summary>
+            Height.
+            </summary>
+        </member>
+        <member name="P:Portal.GameRegion.Left">
+            <summary>
+            Left coordinate.
+            </summary>
+        </member>
+        <member name="P:Portal.GameRegion.Top">
+            <summary>
+            Top coordinate.
+            </summary>
+        </member>
+        <member name="P:Portal.GameRegion.Right">
+            <summary>
+            Right coordinate.
+            </summary>
+        </member>
+        <member name="P:Portal.GameRegion.Bottom">
+            <summary>
+            Buttom coordinate.
+            </summary>
+        </member>
+        <member name="P:Portal.GameRegion.Center">
+            <summary>
+            Center of region.
+            </summary>
+        </member>
+        <member name="P:Portal.GameRegion.Rect">
+            <summary>
+            Region as System.Drawing.Rectangle.
+            </summary>
+        </member>
+        <member name="M:Portal.GameRegion.Contains(System.Int32,System.Int32)">
+            <summary>
+            Checks if specified coords are inside this GameRegion.
+            </summary>
+            <param name="InX">X coordinate to check.</param>
+            <param name="InY">Y coordinate to check.</param>
+        </member>
+        <member name="M:Portal.GameRegion.Contains(Portal.GamePoint)">
+            <summary>
+            Checks if specified point is inside this GameRegion.
+            </summary>
+            <param name="InPoint">Point to check.</param>
+        </member>
+        <member name="M:Portal.GameRegion.Contains(Portal.GameRegion)">
+            <summary>
+            Checks if specified region is inside this GameRegion.
+            </summary>
+            <param name="InRegion">Region to check.</param>
+        </member>
+        <member name="M:Portal.GameRegion.IsEmpty">
+            <summary>
+            Checks if this GameRegion is empty (0, 0, 0, 0).
+            </summary>
+        </member>
+        <member name="M:Portal.GameRegion.ToGameCoords">
+            <summary>
+            Converts the coordinates of this GameRegion to game coordinates.
+            </summary>
+        </member>
+        <member name="P:Portal.GameSize.Width">
+            <summary>
+            Width.
+            </summary>
+        </member>
+        <member name="P:Portal.GameSize.Height">
+            <summary>
+            Height.
+            </summary>
+        </member>
+        <member name="M:Portal.Utility.Algorithms.BresenhamsLineDistanceOnly(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Generates a list of points that are on the line between the start and end points.
+            </summary>
+            <param name="InStartX">X coordinate of the starting point of the line.</param>
+            <param name="InStartY">Y coordinate of the starting point of the line.</param>
+            <param name="InEndX">X coordinate of the end point of the line.</param>
+            <param name="InEndY">Y coordinate of the end point of the line.</param>
+            <param name="InMaxPoints">Maximum number of points to return.</param>
+        </member>
+        <member name="M:Portal.Utility.DebugHelpers.ShowRegionCapture(Portal.GameRegion)">
+            <summary>
+            Shows image of captured region.
+            </summary>
+            <param name="InRegion">Region to capture.</param>
+        </member>
+        <member name="M:Portal.Utility.DebugHelpers.ShowImageMatrix(OpenCvSharp.Mat)">
+            <summary>
+            Shows OpenCV matrix.
+            </summary>
+            <param name="InMatrix">Matrix to show.</param>
+        </member>
+        <member name="T:Portal.Utility.ScriptHelpers">
+            <summary>
+            Functions to make scripting less tedious.
+            </summary>
+        </member>
+        <member name="M:Portal.Utility.ScriptHelpers.Wait(System.Int32)">
+            <summary>
+            Waits for a specified number of milliseconds.
+            </summary>
+            <param name="InMilliseconds">Number of milliseconds to wait.</param>
+        </member>
+        <member name="M:Portal.Utility.ScriptHelpers.WaitUntilFound(System.String,System.Nullable{Portal.Detection.SearchOptions},System.Nullable{Portal.Detection.RepeatOptions})">
+            <summary>
+            Waits until the template is found.
+            </summary>
+            <param name="InTemplateName"/>
+            <param name="InSearchOptions"/>
+            <param name="InRepeatOptions"/>
+            <returns>Returns the best match found.</returns>
+        </member>
+        <member name="M:Portal.Utility.ScriptHelpers.DoUntilFound(System.String,System.Action,System.Nullable{Portal.Detection.SearchOptions},System.Nullable{Portal.Detection.RepeatOptions})">
+            <summary>
+            Repeatedly executes the given action until the template is found, synchronously.
+            </summary>
+            <param name="InTemplateName"/>
+            <param name="InAction"/>
+            <param name="InSearchOptions"/>
+            <param name="InRepeatOptions"/>
+            <returns>Returns the best match found.</returns>
+            <example>
+            Example usage:
+            <code>
+                int MyVar = 0;
+                var MatchFound = DoUntilFound("MyTemplateName", () =&gt;
+                {
+                    MyVar++;
+                }, new GameRegion(0, 0, 1920, 1080), new RepeatOptions(100, 0));
+            </code>
+            The above tries to find the template "MyTemplateName" and executes an action each try until it is found.
+            It has <see cref="T:Portal.Detection.SearchOptions"/> of a default screen resolution, and <see cref="T:Portal.Detection.RepeatOptions"/> that says it shall repeat 100 times with 0ms between each try, stopping when a match is found.
+            </example>
+        </member>
+        <member name="M:Portal.Utility.ScriptHelpers.DoUntilFound_Async(System.String,System.Action,System.Nullable{Portal.Detection.SearchOptions},System.Nullable{Portal.Detection.RepeatOptions})">
+            <summary>
+            Repeatedly executes the given action until the template is found, asynchronously.
+            </summary>
+            <param name="InTemplateName"/>
+            <param name="InAction"/>
+            <param name="InSearchOptions"/>
+            <param name="InRepeatOptions"/>
+            <returns>Returns the best match found.</returns>
+        </member>
+        <member name="M:Portal.Utility.ScriptHelpers.WaitUntilFoundMulti(System.String,System.Nullable{Portal.Detection.SearchOptions},System.Nullable{Portal.Detection.RepeatOptions})">
+            <summary>
+            Waits until the template is found.
+            </summary>
+            <param name="InTemplateName"/>
+            <param name="InSearchOptions"/>
+            <param name="InRepeatOptions"/>
+            <returns>Returns all matches found.</returns>
+        </member>
+        <member name="M:Portal.Utility.ScriptHelpers.DoUntilFoundMulti(System.String,System.Action,System.Nullable{Portal.Detection.SearchOptions},System.Nullable{Portal.Detection.RepeatOptions})">
+            <summary>
+            Repeatedly executes the given action until the template is found, synchronously.
+            </summary>
+            <param name="InTemplateName"/>
+            <param name="InAction"/>
+            <param name="InSearchOptions"/>
+            <param name="InRepeatOptions"/>
+            <returns>Returns all matches found.</returns>
+            <example>
+            Example usage:
+            <code>
+                int MyVar = 0;
+                var MatchesFound = DoUntilFoundMulti("MyTemplateName", () =&gt;
+                {
+                    MyVar++;
+                }, new GameRegion(0, 0, 1920, 1080), new RepeatOptions(100, 0));
+            </code>
+            The above tries to find the template "MyTemplateName" and executes an action each try until it is found.
+            It has <see cref="T:Portal.Detection.SearchOptions"/> of a default screen resolution, and <see cref="T:Portal.Detection.RepeatOptions"/> that says it shall repeat 100 times with 0ms between each try, stopping when matches are found.
+            </example>
+        </member>
+        <member name="M:Portal.Utility.ScriptHelpers.DoUntilFoundMulti_Async(System.String,System.Action,System.Nullable{Portal.Detection.SearchOptions},System.Nullable{Portal.Detection.RepeatOptions})">
+            <summary>
+            Repeatedly executes the given action until the template is found, asynchronously.
+            </summary>
+            <param name="InTemplateName"/>
+            <param name="InAction"/>
+            <param name="InSearchOptions"/>
+            <param name="InRepeatOptions"/>
+            <returns>Returns all matches found.</returns>
+        </member>
+        <member name="M:Portal.Utility.ScriptHelpers.WaitUntilPredicate(System.String,System.Predicate{Portal.Detection.Match},System.Nullable{Portal.Detection.SearchOptions},System.Nullable{Portal.Detection.RepeatOptions})">
+            <summary>
+            Waits until the specified predicate is true.
+            </summary>
+            <param name="InTemplateName"/>
+            <param name="InPredicate"/>
+            <param name="InSearchOptions"/>
+            <param name="InRepeatOptions"/>
+            <returns>Returns the best match found, and the predicate result.</returns>
+            <example>
+            Example usage:
+            <code>
+                var (MatchFound, bPredicateResult) = WaitUntilPredicate("MyTemplateName", match =&gt; match != null, new GameRegion(0, 0, 1920, 1080), new RepeatOptions(100, 0));
+            </code>
+            The above tries to find the template "MyTemplateName" until the predicate is true, which it is when a match is found.
+            It has <see cref="T:Portal.Detection.SearchOptions"/> of a default screen resolution, and <see cref="T:Portal.Detection.RepeatOptions"/> that says it shall repeat 100 times with 0ms between each try, stopping when the predicate is true.
+            </example>
+        </member>
+        <member name="M:Portal.Utility.ScriptHelpers.DoUntilPredicate(System.String,System.Action,System.Predicate{Portal.Detection.Match},System.Nullable{Portal.Detection.SearchOptions},System.Nullable{Portal.Detection.RepeatOptions})">
+            <summary>
+            Repeatedly executes the given action until the specified predicate is true, synchronously.
+            </summary>
+            <param name="InTemplateName"/>
+            <param name="InAction"/>
+            <param name="InPredicate"/>
+            <param name="InSearchOptions"/>
+            <param name="InRepeatOptions"/>
+            <returns>Returns the best match found, and the predicate result.</returns>
+            <example>
+            Example usage:
+            <code>
+                int MyVar = 0;
+                var (MatchFound, bPredicateResult) = DoUntilPredicate("MyTemplateName", () =&gt;
+                {
+                    MyVar++;
+                }, match =&gt; match != null &amp;&amp; MyVar &gt; 5, new GameRegion(0, 0, 1920, 1080), new RepeatOptions(100, 0));
+            </code>
+            The above tries to find the template "MyTemplateName" until the predicate is true, which it is when a match is found and MyVar is greather than 5.
+            It has <see cref="T:Portal.Detection.SearchOptions"/> of a default screen resolution, and <see cref="T:Portal.Detection.RepeatOptions"/> that says it shall repeat 100 times with 0ms between each try, stopping when the predicate is true.
+            </example>
+        </member>
+        <member name="M:Portal.Utility.ScriptHelpers.DoUntilPredicate_Async(System.String,System.Action,System.Predicate{Portal.Detection.Match},System.Nullable{Portal.Detection.SearchOptions},System.Nullable{Portal.Detection.RepeatOptions})">
+            <summary>
+            Repeatedly executes the given action until the specified predicate is true, asynchronously.
+            </summary>
+            <param name="InTemplateName"/>
+            <param name="InAction"/>
+            <param name="InPredicate"/>
+            <param name="InSearchOptions"/>
+            <param name="InRepeatOptions"/>
+            <returns>Returns the best match found, and the predicate result.</returns>
+        </member>
+        <member name="M:Portal.Utility.ScriptHelpers.WaitUntilPredicateMulti(System.String,System.Predicate{System.Collections.Generic.List{Portal.Detection.Match}},System.Nullable{Portal.Detection.SearchOptions},System.Nullable{Portal.Detection.RepeatOptions})">
+            <summary>
+            Waits until the specified predicate is true.
+            </summary>
+            <param name="InTemplateName"/>
+            <param name="InPredicate"/>
+            <param name="InSearchOptions"/>
+            <param name="InRepeatOptions"/>
+            <returns>Returns all matches found, and the predicate result.</returns>
+            <example>
+            Example usage:
+            <code>
+                var (MatchesFound, bPredicateResult) = WaitUntilPredicateMulti("MyTemplateName", matches =&gt; matches != null, new GameRegion(0, 0, 1920, 1080), new RepeatOptions(100, 0));
+            </code>
+            The above tries to find the template "MyTemplateName" until the predicate is true, which it is when matches are found.
+            It has <see cref="T:Portal.Detection.SearchOptions"/> of a default screen resolution, and <see cref="T:Portal.Detection.RepeatOptions"/> that says it shall repeat 100 times with 0ms between each try, stopping when the predicate is true.
+            </example>
+        </member>
+        <member name="M:Portal.Utility.ScriptHelpers.DoUntilPredicateMulti(System.String,System.Action,System.Predicate{System.Collections.Generic.List{Portal.Detection.Match}},System.Nullable{Portal.Detection.SearchOptions},System.Nullable{Portal.Detection.RepeatOptions})">
+            <summary>
+            Repeatedly executes the given action until the specified predicate is true, synchronously.
+            </summary>
+            <param name="InTemplateName"/>
+            <param name="InAction"/>
+            <param name="InPredicate"/>
+            <param name="InSearchOptions"/>
+            <param name="InRepeatOptions"/>
+            <returns>Returns all matches found, and the predicate result.</returns>
+            <example>
+            Example usage:
+            <code>
+                int MyVar = 0;
+                var (MatchesFound, bPredicateResult) = DoUntilPredicateMulti("MyTemplateName", () =&gt;
+                {
+                    MyVar++;
+                }, matches =&gt; matches != null &amp;&amp; MyVar &gt; 5, new GameRegion(0, 0, 1920, 1080), new RepeatOptions(100, 0));
+            </code>
+            The above tries to find the template "MyTemplateName" until the predicate is true, which it is when matches are found and MyVar is greather than 5.
+            It has <see cref="T:Portal.Detection.SearchOptions"/> of a default screen resolution, and <see cref="T:Portal.Detection.RepeatOptions"/> that says it shall repeat 100 times with 0ms between each try, stopping when the predicate is true.
+            </example>
+        </member>
+        <member name="M:Portal.Utility.ScriptHelpers.DoUntilPredicateMulti_Async(System.String,System.Action,System.Predicate{System.Collections.Generic.List{Portal.Detection.Match}},System.Nullable{Portal.Detection.SearchOptions},System.Nullable{Portal.Detection.RepeatOptions})">
+            <summary>
+            Repeatedly executes the given action until the specified predicate is true, asynchronously.
+            </summary>
+            <param name="InTemplateName"/>
+            <param name="InAction"/>
+            <param name="InPredicate"/>
+            <param name="InSearchOptions"/>
+            <param name="InRepeatOptions"/>
+            <returns>Returns all matches found, and the predicate result.</returns>
+        </member>
+        <member name="M:Portal.Utility.ScriptHelpers.Draw(System.Windows.UIElement,System.Int32,System.String)">
+            <summary>
+            Draws a new element to the screen.
+            </summary>
+            <param name="InID">ID of the drawing.</param>
+            <param name="InElement">Element to draw.</param>
+            <param name="InDuration">Duration in milliseconds until the drawing gets erased. If you want the drawing to last forever, set this to Timeout.Infinite.</param>
+        </member>
+        <member name="M:Portal.Utility.ScriptHelpers.Erase">
+            <summary>
+            Erases all drawings.
+            </summary>
+        </member>
+        <member name="M:Portal.Utility.ScriptHelpers.Erase(System.String)">
+            <summary>
+            Erases all drawings with the specified ID.
+            </summary>
+            <param name="InID">ID of the drawings to be erased.</param>
+        </member>
+        <member name="M:Portal.Utility.ScriptHelpers.Draw_Text(System.String,Portal.GameRegion,System.Int32,System.String)">
+            <summary>
+            Helper function to draw text on the screen. <br/> See <see cref="M:Portal.Utility.ScriptHelpers.Draw(System.Windows.UIElement,System.Int32,System.String)"/> for more information.
+            </summary>
+            <param name="InText">Text to draw.</param>
+            <param name="InRegion">Region to draw text.</param>
+            <param name="InDuration">How long the rectangle will be drawn for, if Timeout.Infinite is specified, it will stay drawn until <see cref="M:Portal.Utility.ScriptHelpers.Erase"/> is called.</param>
+            <param name="InID">ID of the drawing.</param>
+        </member>
+        <member name="M:Portal.Utility.ScriptHelpers.Draw_Text(System.String,Portal.GameRegion,System.Windows.Media.Color,System.String,System.Int32,System.Int32,System.String)">
+            <summary>
+            Helper function to draw text on the screen. <br/> See <see cref="M:Portal.Utility.ScriptHelpers.Draw(System.Windows.UIElement,System.Int32,System.String)"/> for more information.
+            </summary>
+            <param name="InText">Text to draw.</param>
+            <param name="InRegion">Region to draw text.</param>
+            <param name="InColor">Color of the text.</param>
+            <param name="InFont">Font of the text.</param>
+            <param name="InFontSize">Font size of the text.</param>
+            <param name="InDuration">How long the rectangle will be drawn for, if Timeout.Infinite is specified, it will stay drawn until <see cref="M:Portal.Utility.ScriptHelpers.Erase"/> is called.</param>
+            <param name="InID">ID of the drawing.</param>
+        </member>
+        <member name="M:Portal.Utility.ScriptHelpers.Draw_Rectangle(Portal.GameRegion,System.Int32,System.String)">
+            <summary>
+            Helper function to draw a rectangle on the screen. <br/> See <see cref="M:Portal.Utility.ScriptHelpers.Draw(System.Windows.UIElement,System.Int32,System.String)"/> for more information.
+            </summary>
+            <param name="InRegion">Rectangle to draw.</param>
+            <param name="InDuration">How long the rectangle will be drawn for, if Timeout.Infinite is specified, it will stay drawn until <see cref="M:Portal.Utility.ScriptHelpers.Erase"/> is called.</param>
+            <param name="InID">ID of the drawing.</param>
+        </member>
+        <member name="M:Portal.Utility.ScriptHelpers.Draw_Rectangle(Portal.GameRegion,System.Nullable{System.Windows.Media.Color},System.Int32,System.String)">
+            <summary>
+            Helper function to draw a rectangle on the screen. <br/> See <see cref="M:Portal.Utility.ScriptHelpers.Draw(System.Windows.UIElement,System.Int32,System.String)"/> for more information.
+            </summary>
+            <param name="InRegion">Rectangle to draw.</param>
+            <param name="InColor">Color of the rectangle.</param>
+            <param name="InDuration">How long the rectangle will be drawn for, if Timeout.Infinite is specified, it will stay drawn until <see cref="M:Portal.Utility.ScriptHelpers.Erase"/> is called.</param>
+            <param name="InID">ID of the drawing.</param>
+        </member>
+        <member name="M:Portal.Utility.StringHelpers.Substring(System.String,System.String,System.String,System.StringComparison)">
+            <summary>
+             Returns a substring of the current string, starting from the first occurrence of the specified from string, and ending at the first occurrence of the specified until string, or at the end of the string if the specified string is not found.
+            </summary>
+            <param name="InSourceString">The string to search in.</param>
+            <param name="InFrom">The string to search from.</param>
+            <param name="InUntil">The string to search for as the end of the substring.</param>
+            <param name="InComparison">The type of comparison to perform when searching for the specified string.</param>
+        </member>
+        <member name="T:Nodify.Playground.EditorSettingsView">
+            <summary>
+            Interaction logic for EditorSettingsView.xaml
+            </summary>
+            <summary>
+            EditorSettingsView
+            </summary>
+        </member>
+        <member name="M:Nodify.Playground.EditorSettingsView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Nodify.Playground.NodifyEditorView">
+            <summary>
+            NodifyEditorView
+            </summary>
+        </member>
+        <member name="M:Nodify.Playground.NodifyEditorView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Nodify.Playground.PlaygroundSettingsView">
+            <summary>
+            Interaction logic for PlaygroundSettingsView.xaml
+            </summary>
+            <summary>
+            PlaygroundSettingsView
+            </summary>
+        </member>
+        <member name="M:Nodify.Playground.PlaygroundSettingsView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Nodify.Playground.PointEditorView">
+            <summary>
+            PointEditorView
+            </summary>
+        </member>
+        <member name="M:Nodify.Playground.PointEditorView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Nodify.StateMachine.BlackboardKeyEditorView">
+            <summary>
+            BlackboardKeyEditorView
+            </summary>
+        </member>
+        <member name="M:Nodify.StateMachine.BlackboardKeyEditorView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Nodify.StateMachine.MainWindow">
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="M:Nodify.StateMachine.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Nodify.StateMachine.BlackboardPropertyAttribute">
+            <summary>
+            Properties decorated with this attribute must always be of type <see cref="T:Nodify.StateMachine.BlackboardProperty"/>.
+            </summary>
+        </member>
+        <member name="M:Nodify.StateMachine.BlackboardPropertyAttribute.#ctor(System.String,Nodify.StateMachine.BlackboardKeyType)">
+            <summary>
+            Properties decorated with this attribute must always be of type <see cref="T:Nodify.StateMachine.BlackboardProperty"/>.
+            </summary>
+            <param name="name">The display name of the key.</param>
+            <param name="type">The data type of the value that the key refers to.</param>
+        </member>
+        <member name="M:Nodify.StateMachine.BlackboardPropertyAttribute.#ctor(Nodify.StateMachine.BlackboardKeyType)">
+            <summary>
+            Properties decorated with this attribute must always be of type <see cref="T:Nodify.StateMachine.BlackboardProperty"/>.
+            </summary>
+            <param name="type">The data type of the value that the key refers to.</param>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
+        </member>
+        <member name="T:ApplicationConfiguration">
+            <summary>
+             Bootstrap the application configuration.
+            </summary>
+        </member>
+        <member name="M:ApplicationConfiguration.Initialize">
+            <summary>
+             Bootstrap the application as follows:
+             <code>
+             Application.EnableVisualStyles();
+             Application.SetCompatibleTextRenderingDefault(false);
+             Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            </code>
+            </summary>
+        </member>
+    </members>
+</doc>

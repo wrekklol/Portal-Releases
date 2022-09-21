@@ -3,7 +3,7 @@
 
 ## Template.W Property
 
-Template width, gets [Portal.GameSize.Width](https://docs.microsoft.com/en-us/dotnet/api/Portal.GameSize.Width 'Portal.GameSize.Width').
+Template width, gets [Width](GameSize.Width.md 'Portal.GameSize.Width').
 
 ```csharp
 public int W { get; }

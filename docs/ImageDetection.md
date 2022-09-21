@@ -15,5 +15,5 @@ Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.O
 
 | Methods | |
 | :--- | :--- |
-| [FindTemplate(Template, GameRegion, double, TemplateMatchModes)](ImageDetection.FindTemplate(Template,GameRegion,double,TemplateMatchModes).md 'Portal.Detection.ImageDetection.FindTemplate(Portal.Detection.Template, Portal.GameRegion, double, OpenCvSharp.TemplateMatchModes)') | Captures a region and tries to match a template to it. |
-| [FindTemplates(Template, GameRegion, double, TemplateMatchModes)](ImageDetection.FindTemplates(Template,GameRegion,double,TemplateMatchModes).md 'Portal.Detection.ImageDetection.FindTemplates(Portal.Detection.Template, Portal.GameRegion, double, OpenCvSharp.TemplateMatchModes)') | Captures a region and tries to match a template to it. |
+| [FindBestMatch(Template, SearchOptions)](ImageDetection.FindBestMatch(Template,SearchOptions).md 'Portal.Detection.ImageDetection.FindBestMatch(Portal.Detection.Template, Portal.Detection.SearchOptions)') | Captures a region and tries to compare a template to it. |
+| [FindMatches(Template, SearchOptions)](ImageDetection.FindMatches(Template,SearchOptions).md 'Portal.Detection.ImageDetection.FindMatches(Portal.Detection.Template, Portal.Detection.SearchOptions)') | Captures a region and tries to compare a template to it. |

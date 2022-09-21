@@ -14,6 +14,7 @@ Implements [Portal.IReloadable](https://docs.microsoft.com/en-us/dotnet/api/Port
 
 | Methods | |
 | :--- | :--- |
+| [Click(InputOptions)](InputManager.Click(InputOptions).md 'Portal.Input.InputManager.Click(Portal.Input.InputOptions)') | Sends down and up input. |
 | [MouseMove_Async(GamePoint, double, double, double, double, GamePoint, Action)](InputManager.MouseMove_Async(GamePoint,double,double,double,double,GamePoint,Action).md 'Portal.Input.InputManager.MouseMove_Async(Portal.GamePoint, double, double, double, double, Portal.GamePoint, System.Action)') | Moves the mouse mouse from one point to another with human like movement. |
 | [MouseMove_Async(GamePoint, double, double, double, double, Action)](InputManager.MouseMove_Async(GamePoint,double,double,double,double,Action).md 'Portal.Input.InputManager.MouseMove_Async(Portal.GamePoint, double, double, double, double, System.Action)') | Moves the mouse mouse from one point to another with human like movement. |
 | [MouseMove_Async(GamePoint, double, Action)](InputManager.MouseMove_Async(GamePoint,double,Action).md 'Portal.Input.InputManager.MouseMove_Async(Portal.GamePoint, double, System.Action)') | Moves the mouse mouse from one point to another with human like movement. |

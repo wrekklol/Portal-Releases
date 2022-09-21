@@ -3,7 +3,7 @@
 
 ## Template.H Property
 
-Template height, gets [Portal.GameSize.Height](https://docs.microsoft.com/en-us/dotnet/api/Portal.GameSize.Height 'Portal.GameSize.Height').
+Template height, gets [Height](GameSize.Height.md 'Portal.GameSize.Height').
 
 ```csharp
 public int H { get; }

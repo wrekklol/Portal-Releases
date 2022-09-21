@@ -6,7 +6,7 @@
 Module which contains scripted behaviours.
 
 ```csharp
-public class ScriptModule :
+public sealed class ScriptModule :
 Portal.IReloadable
 ```
 
@@ -96,8 +96,10 @@ private readonly string[] CommonIncludes =
 {  
    "Portal",  
    "Portal.Globals",  
+   "Portal.Config",  
    "Portal.Printer",  
    "Portal.Scripting",  
+   "Portal.GameInfo",  
    "Portal.Utility", "Portal.Utility.ArrayHelpers", "Portal.Utility.DebugHelpers", "Portal.Utility.DelegateHelpers", "Portal.Utility.MathHelpers", "Portal.Utility.ScriptHelpers", "Portal.Utility.ThreadHelpers",  
    "Portal.Input", "Portal.Input.Input",  
    "Portal.Detection", "OpenCvSharp",  

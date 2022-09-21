@@ -24,4 +24,4 @@ public static Portal.Detection.Match? WaitUntilFound(string InTemplateName, Syst
 
 #### Returns
 [Match](Match.md 'Portal.Detection.Match')  
-Returns the first or the best match found depending on search options.
+Returns the best match found.

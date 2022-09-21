@@ -6,7 +6,7 @@
 Repeatedly executes the given action until the specified predicate is true, asynchronously.
 
 ```csharp
-public static System.Threading.Tasks.Task<(System.Collections.Generic.List<Portal.Detection.Match> Match,bool bPredicateResult)> DoUntilPredicateMulti_Async(string InTemplateName, System.Action? InAction, System.Predicate<System.Collections.Generic.List<Portal.Detection.Match>> InPredicate, System.Nullable<Portal.Detection.SearchOptions> InSearchOptions=null, System.Nullable<Portal.Detection.RepeatOptions> InRepeatOptions=null);
+public static System.Threading.Tasks.Task<(System.Collections.Generic.List<Portal.Detection.Match>? Match,bool bPredicateResult)> DoUntilPredicateMulti_Async(string InTemplateName, System.Action? InAction, System.Predicate<System.Collections.Generic.List<Portal.Detection.Match>?> InPredicate, System.Nullable<Portal.Detection.SearchOptions> InSearchOptions=null, System.Nullable<Portal.Detection.RepeatOptions> InRepeatOptions=null);
 ```
 #### Parameters
 
@@ -32,4 +32,4 @@ public static System.Threading.Tasks.Task<(System.Collections.Generic.List<Porta
 
 #### Returns
 [System.Threading.Tasks.Task&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Threading.Tasks.Task-1 'System.Threading.Tasks.Task`1')[&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.ValueTuple 'System.ValueTuple')[System.Collections.Generic.List&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')[Match](Match.md 'Portal.Detection.Match')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')[,](https://docs.microsoft.com/en-us/dotnet/api/System.ValueTuple 'System.ValueTuple')[System.Boolean](https://docs.microsoft.com/en-us/dotnet/api/System.Boolean 'System.Boolean')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.ValueTuple 'System.ValueTuple')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Threading.Tasks.Task-1 'System.Threading.Tasks.Task`1')  
-Returns all matches found depending on search options, and the predicate result.
+Returns all matches found, and the predicate result.

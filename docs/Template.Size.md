@@ -10,4 +10,4 @@ public Portal.GameSize Size { get; set; }
 ```
 
 #### Property Value
-[Portal.GameSize](https://docs.microsoft.com/en-us/dotnet/api/Portal.GameSize 'Portal.GameSize')
+[GameSize](GameSize.md 'Portal.GameSize')

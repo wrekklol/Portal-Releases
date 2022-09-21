@@ -10,4 +10,4 @@ public Portal.Input.EKeyState KeyState { get; set; }
 ```
 
 #### Property Value
-[Portal.Input.EKeyState](https://docs.microsoft.com/en-us/dotnet/api/Portal.Input.EKeyState 'Portal.Input.EKeyState')
+[EKeyState](EKeyState.md 'Portal.Input.EKeyState')

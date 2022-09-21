@@ -28,4 +28,4 @@ public static System.Threading.Tasks.Task<Portal.Detection.Match?> DoUntilFound_
 
 #### Returns
 [System.Threading.Tasks.Task&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Threading.Tasks.Task-1 'System.Threading.Tasks.Task`1')[Match](Match.md 'Portal.Detection.Match')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Threading.Tasks.Task-1 'System.Threading.Tasks.Task`1')  
-Returns the first or the best match found depending on search options.
+Returns the best match found.

@@ -35,7 +35,7 @@ Order of string "arguments" is irrelevant except for the key, which has to be at
 It is case insensitive as well, so typing "DOWN" or "down" is the same.  
   
 Valid values are:  
-Key codes from [Portal.Input.EKeys](https://docs.microsoft.com/en-us/dotnet/api/Portal.Input.EKeys 'Portal.Input.EKeys') enum  
+Key codes from [EKeys](EKeys.md 'Portal.Input.EKeys') enum  
 "down" or "d"  
 "up" or "u"  
 "control" or "c"  

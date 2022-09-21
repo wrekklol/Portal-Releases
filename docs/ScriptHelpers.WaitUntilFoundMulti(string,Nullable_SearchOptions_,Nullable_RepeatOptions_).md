@@ -6,7 +6,7 @@
 Waits until the template is found.
 
 ```csharp
-public static System.Collections.Generic.List<Portal.Detection.Match> WaitUntilFoundMulti(string InTemplateName, System.Nullable<Portal.Detection.SearchOptions> InSearchOptions=null, System.Nullable<Portal.Detection.RepeatOptions> InRepeatOptions=null);
+public static System.Collections.Generic.List<Portal.Detection.Match>? WaitUntilFoundMulti(string InTemplateName, System.Nullable<Portal.Detection.SearchOptions> InSearchOptions=null, System.Nullable<Portal.Detection.RepeatOptions> InRepeatOptions=null);
 ```
 #### Parameters
 
@@ -24,4 +24,4 @@ public static System.Collections.Generic.List<Portal.Detection.Match> WaitUntilF
 
 #### Returns
 [System.Collections.Generic.List&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')[Match](Match.md 'Portal.Detection.Match')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')  
-Returns all matches found depending on search options.
+Returns all matches found.

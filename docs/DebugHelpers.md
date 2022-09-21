@@ -11,4 +11,5 @@ Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.O
 
 | Methods | |
 | :--- | :--- |
+| [ShowImageMatrix(Mat)](DebugHelpers.ShowImageMatrix(Mat).md 'Portal.Utility.DebugHelpers.ShowImageMatrix(OpenCvSharp.Mat)') | Shows OpenCV matrix. |
 | [ShowRegionCapture(GameRegion)](DebugHelpers.ShowRegionCapture(GameRegion).md 'Portal.Utility.DebugHelpers.ShowRegionCapture(Portal.GameRegion)') | Shows image of captured region. |

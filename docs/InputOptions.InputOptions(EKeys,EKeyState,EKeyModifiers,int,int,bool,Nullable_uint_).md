@@ -12,11 +12,11 @@ public InputOptions(Portal.Input.EKeys InKey, Portal.Input.EKeyState InKeyState=
 
 <a name='Portal.Input.InputOptions.InputOptions(Portal.Input.EKeys,Portal.Input.EKeyState,Portal.Input.EKeyModifiers,int,int,bool,System.Nullable_uint_).InKey'></a>
 
-`InKey` [Portal.Input.EKeys](https://docs.microsoft.com/en-us/dotnet/api/Portal.Input.EKeys 'Portal.Input.EKeys')
+`InKey` [EKeys](EKeys.md 'Portal.Input.EKeys')
 
 <a name='Portal.Input.InputOptions.InputOptions(Portal.Input.EKeys,Portal.Input.EKeyState,Portal.Input.EKeyModifiers,int,int,bool,System.Nullable_uint_).InKeyState'></a>
 
-`InKeyState` [Portal.Input.EKeyState](https://docs.microsoft.com/en-us/dotnet/api/Portal.Input.EKeyState 'Portal.Input.EKeyState')
+`InKeyState` [EKeyState](EKeyState.md 'Portal.Input.EKeyState')
 
 <a name='Portal.Input.InputOptions.InputOptions(Portal.Input.EKeys,Portal.Input.EKeyState,Portal.Input.EKeyModifiers,int,int,bool,System.Nullable_uint_).InModifiers'></a>
 

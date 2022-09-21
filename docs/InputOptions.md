@@ -23,7 +23,11 @@ public struct InputOptions
 | [PressDelay](InputOptions.PressDelay.md 'Portal.Input.InputOptions.PressDelay') | Delay before key press. |
 | [ReleaseDelay](InputOptions.ReleaseDelay.md 'Portal.Input.InputOptions.ReleaseDelay') | Delay before key release. |
 
+| Methods | |
+| :--- | :--- |
+| [IsMouseInput()](InputOptions.IsMouseInput().md 'Portal.Input.InputOptions.IsMouseInput()') | Checks if this is mouse input. |
+
 | Operators | |
 | :--- | :--- |
-| [implicit operator InputOptions(EKeys)](InputOptions.implicitoperatorInputOptions(EKeys).md 'Portal.Input.InputOptions.op_Implicit Portal.Input.InputOptions(Portal.Input.EKeys)') | Cast operator. <br/> Allows you to cast [Portal.Input.EKeys](https://docs.microsoft.com/en-us/dotnet/api/Portal.Input.EKeys 'Portal.Input.EKeys') to input options. |
+| [implicit operator InputOptions(EKeys)](InputOptions.implicitoperatorInputOptions(EKeys).md 'Portal.Input.InputOptions.op_Implicit Portal.Input.InputOptions(Portal.Input.EKeys)') | Cast operator. <br/> Allows you to cast [EKeys](EKeys.md 'Portal.Input.EKeys') to input options. |
 | [implicit operator InputOptions(string)](InputOptions.implicitoperatorInputOptions(string).md 'Portal.Input.InputOptions.op_Implicit Portal.Input.InputOptions(string)') | Cast operator. <br/>           Allows you to cast an input binding string to input options. |

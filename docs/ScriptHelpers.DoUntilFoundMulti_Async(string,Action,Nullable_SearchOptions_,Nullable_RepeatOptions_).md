@@ -6,7 +6,7 @@
 Repeatedly executes the given action until the template is found, asynchronously.
 
 ```csharp
-public static System.Threading.Tasks.Task<System.Collections.Generic.List<Portal.Detection.Match>> DoUntilFoundMulti_Async(string InTemplateName, System.Action? InAction, System.Nullable<Portal.Detection.SearchOptions> InSearchOptions=null, System.Nullable<Portal.Detection.RepeatOptions> InRepeatOptions=null);
+public static System.Threading.Tasks.Task<System.Collections.Generic.List<Portal.Detection.Match>?> DoUntilFoundMulti_Async(string InTemplateName, System.Action? InAction, System.Nullable<Portal.Detection.SearchOptions> InSearchOptions=null, System.Nullable<Portal.Detection.RepeatOptions> InRepeatOptions=null);
 ```
 #### Parameters
 
@@ -28,4 +28,4 @@ public static System.Threading.Tasks.Task<System.Collections.Generic.List<Portal
 
 #### Returns
 [System.Threading.Tasks.Task&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Threading.Tasks.Task-1 'System.Threading.Tasks.Task`1')[System.Collections.Generic.List&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')[Match](Match.md 'Portal.Detection.Match')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Threading.Tasks.Task-1 'System.Threading.Tasks.Task`1')  
-Returns all matches found depending on search options.
+Returns all matches found.

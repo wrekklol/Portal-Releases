@@ -13,3 +13,5 @@
 | Enums | |
 | :--- | :--- |
 | [EKeyModifiers](EKeyModifiers.md 'Portal.Input.EKeyModifiers') | Key modifiers. |
+| [EKeys](EKeys.md 'Portal.Input.EKeys') | Keys. |
+| [EKeyState](EKeyState.md 'Portal.Input.EKeyState') | Key state. |
