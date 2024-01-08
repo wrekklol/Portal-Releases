@@ -31,6 +31,7 @@ def Start():
 ```
 
 Now whenever you start the script, "Hello Print" will get printed to the console, [Magic](https://tenor.com/view/mr-bean-gif-23140940)!
+
 Note: "from ...Stubs.PythonStubs import *" must be defined for it to be considered a behavior script.
 
 You can also easily start detecting templates and sending input etc.
