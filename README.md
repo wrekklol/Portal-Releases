@@ -127,7 +127,7 @@ If more control over the point is needed, you can use the FindPixelColor overloa
 
 ### [MouseMove]() 
 This will move your mouse with human-like movements towards the given [GamePoint](https://github.com/wrekklol/Portal-Releases/blob/main/docs/GamePoint.md).  
-It can be configured using the [MouseMoveOptions]() parameter, to specify the speed and wind etc. Can also be configured using the config menu.
+It can be configured using the [MouseMoveOptions](https://github.com/wrekklol/Portal-Releases/blob/main/docs/MouseMoveOptions.md) parameter, to specify the speed and wind etc. Can also be configured using the config menu.
 
 Example:
 ```Python
@@ -139,24 +139,6 @@ If you already have a match stored as a variable you could do:
 ```Python
 match = FindMatch("YourNewTemplate")
 match.Move() # Moves mouse to the center of the match
-```
-Which will move the mouse to the [center](https://github.com/wrekklol/Portal-Releases/blob/main/docs/GameRegion.Center.md) of the match's [GameRegion](https://github.com/wrekklol/Portal-Releases/blob/main/docs/GameRegion.md).
-
-<br/>
-
-### [MouseMove_Instant]()
-This will move your mouse to the specified [GamePoint](https://github.com/wrekklol/Portal-Releases/blob/main/docs/GamePoint.md) instantly, without human-like movement.
-
-Example:
-```Python
-MouseMove_Instant(50, 50);
-```
-Which will move the mouse to the center of the screen.
-
-If you already have a match stored as a variable you could do:
-```Python
-match = FindMatch("YourNewTemplate")
-MouseMove_Instant(match.Region.Center);
 ```
 Which will move the mouse to the [center](https://github.com/wrekklol/Portal-Releases/blob/main/docs/GameRegion.Center.md) of the match's [GameRegion](https://github.com/wrekklol/Portal-Releases/blob/main/docs/GameRegion.md).
 
