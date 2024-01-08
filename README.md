@@ -4,7 +4,7 @@
 Download the [latest release](https://github.com/wrekklol/Portal-Releases/releases/latest), and have a look at the documentation.
 
 [**Documentation here.**](https://github.com/wrekklol/Portal-Releases/blob/main/docs/index.md)<br>
-Information on how to create a module and start scripting is on [this page.](https://github.com/wrekklol/Portal-Releases/blob/main/docs/ScriptModule.md)
+Information on how to create a module and start scripting is in the Examples section.
 
 Features:
 * Image Detection
