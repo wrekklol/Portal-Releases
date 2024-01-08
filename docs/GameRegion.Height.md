@@ -3,7 +3,7 @@
 
 ## GameRegion.Height Property
 
-Height.
+Height in game coordinates.
 
 ```csharp
 public int Height { get; }

@@ -1,5 +1,5 @@
 #### [Portal](index.md 'index')
-### [Portal.Detection](Portal.Detection.md 'Portal.Detection')
+### [Portal.Detect](Portal.Detect.md 'Portal.Detect')
 
 ## Template Class
 
@@ -12,52 +12,55 @@ public class Template
 Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object') &#129106; Template
 
 ### Remarks
-Templates are automatically imported from your "Templates" folder in your module folder when the app is started, and when you press the Reload button.  
+Templates are automatically imported from your "Templates" folder in your module folder when the app is started, when you press the Reload button and when the folders contents are changed.  
   
-When naming your templates in your "Templates" folder, you can give them a suffix with a method, threshold and image type override. For example, if you name your template filename "Awesome Template", you can suffix it with "%SQDIFF+85+COLOR%" (so it becomes "Awesome Template %SQDIFF+85+COLOR%"), which will set the method to SQDIFF, threshold to 0.85 and image type to COLOR.  
-You don't need to override everything at once, for example "%SQDIFF+85%" is also valid, and "%SQDIFF%" as well.  
-   
-There are three different methods - CCOEFF, CCORR and SQDIFF.  
-Each has their advantages and disadvantages. For example CCOEFF is slow, but has good accuracy.  
-Valid values are:  
-CCOEFF  
-CCORR  
-SQDIFF  
-1 (which translates to CCOEFF)  
-2 (which translates to CCORR)  
-3 (which translates to SQDIFF)  
+Templates MUST be a .png image.  
   
-There are two different image types - GRAY and COLOR.  
-GRAY is way faster, but is a little bit less accurate.  
-Valid values are:  
-GRAY  
-COLOR  
-1 (which translates to GRAY)  
-2 (which translates to COLOR)  
+Templates have an associated .meta file, which contains the template's options.  
+Options are as follows:  
+  
+Threshold can be set by setting "Threshold".  
+Values are clamped between 0 and 100, as they are percentages.  
+  
+Method can be set by setting "Method".  
+There are three different methods - "CCOEFF", "CCORR" and "SQDIFF".  
+Each has their advantages and disadvantages. For example "CCOEFF" is slow, but has good accuracy.  
+  
+Color type can be set by setting "ColorType".  
+There are two different color types - "Grayscale" and "Color".  
+"Grayscale" is way faster, but is a little bit less accurate.  
+  
+A default region can be set by setting "Region".  
+An example would be "45 45 55 55" which would be a rectangle in the center of the game window, with a size of 10% of the game window.  
+Values are clamped between 0 and 100, as they are percentages of the game window and it wouldn't make sense to go outside it.  
+  
+Amount of frames to search for can be set by using "F" before the value. OUTDATED  
+Values can go from 1 to "DETECTION_FRAMEPOOL_SIZE"(from config).  
 <br/>  
 Masks are generated from your (image)file's alpha channel.
 
 | Constructors | |
 | :--- | :--- |
-| [Template(string, Mat, Mat, double, TemplateMatchModes, ImreadModes, bool)](Template.Template(string,Mat,Mat,double,TemplateMatchModes,ImreadModes,bool).md 'Portal.Detection.Template.Template(string, OpenCvSharp.Mat, OpenCvSharp.Mat, double, OpenCvSharp.TemplateMatchModes, OpenCvSharp.ImreadModes, bool)') | Template constructor. |
+| [Template(string, Mat, Mat, Nullable&lt;double&gt;, Nullable&lt;TemplateMatchModes&gt;, Nullable&lt;ImreadModes&gt;, Nullable&lt;GameRegion&gt;, Nullable&lt;int&gt;)](Template.Template(string,Mat,Mat,Nullable_double_,Nullable_TemplateMatchModes_,Nullable_ImreadModes_,Nullable_GameRegion_,Nullable_int_).md 'Portal.Detect.Template.Template(string, OpenCvSharp.Mat, OpenCvSharp.Mat, System.Nullable<double>, System.Nullable<OpenCvSharp.TemplateMatchModes>, System.Nullable<OpenCvSharp.ImreadModes>, System.Nullable<Portal.GameRegion>, System.Nullable<int>)') | Template constructor. |
 
 | Properties | |
 | :--- | :--- |
-| [bShouldOverride](Template.bShouldOverride.md 'Portal.Detection.Template.bShouldOverride') | True if a suffix was added to your template filename. <br/> See [Template](Template.md 'Portal.Detection.Template') remarks. |
-| [H](Template.H.md 'Portal.Detection.Template.H') | Template height, gets [Height](GameSize.Height.md 'Portal.GameSize.Height'). |
-| [Image](Template.Image.md 'Portal.Detection.Template.Image') | Template image matrix. |
-| [ImageType](Template.ImageType.md 'Portal.Detection.Template.ImageType') | Template image type. <br/> See [Template](Template.md 'Portal.Detection.Template') remarks. |
-| [Mask](Template.Mask.md 'Portal.Detection.Template.Mask') | Template mask matrix from image alpha. <br/> See [Template](Template.md 'Portal.Detection.Template') remarks. |
-| [Method](Template.Method.md 'Portal.Detection.Template.Method') | Template method. <br/> See [Template](Template.md 'Portal.Detection.Template') remarks. |
-| [Name](Template.Name.md 'Portal.Detection.Template.Name') | Template name. |
-| [Size](Template.Size.md 'Portal.Detection.Template.Size') | Template size, which is set from image matrix size. |
-| [Threshold](Template.Threshold.md 'Portal.Detection.Template.Threshold') | Template threshold. |
-| [W](Template.W.md 'Portal.Detection.Template.W') | Template width, gets [Width](GameSize.Width.md 'Portal.GameSize.Width'). |
+| [ColorType](Template.ColorType.md 'Portal.Detect.Template.ColorType') | Template image type. <br/> See [Template](Template.md 'Portal.Detect.Template') remarks. |
+| [DefaultRegion](Template.DefaultRegion.md 'Portal.Detect.Template.DefaultRegion') | Template default region. <br/> See [Template](Template.md 'Portal.Detect.Template') remarks. |
+| [FramesToSearch](Template.FramesToSearch.md 'Portal.Detect.Template.FramesToSearch') | Template frames to search. <br/> See [Template](Template.md 'Portal.Detect.Template') remarks. |
+| [H](Template.H.md 'Portal.Detect.Template.H') | Template height, gets [Height](Size.Height.md 'Portal.Size.Height'). |
+| [Image](Template.Image.md 'Portal.Detect.Template.Image') | Template image matrix. |
+| [Mask](Template.Mask.md 'Portal.Detect.Template.Mask') | Template mask matrix from image alpha. <br/> See [Template](Template.md 'Portal.Detect.Template') remarks. |
+| [Method](Template.Method.md 'Portal.Detect.Template.Method') | Template method. <br/> See [Template](Template.md 'Portal.Detect.Template') remarks. |
+| [Name](Template.Name.md 'Portal.Detect.Template.Name') | Template name. |
+| [Size](Template.Size.md 'Portal.Detect.Template.Size') | Template size, which is set from image matrix size. |
+| [Threshold](Template.Threshold.md 'Portal.Detect.Template.Threshold') | Template threshold. |
+| [W](Template.W.md 'Portal.Detect.Template.W') | Template width, gets [Width](Size.Width.md 'Portal.Size.Width'). |
 
 | Methods | |
 | :--- | :--- |
-| [ToString()](Template.ToString().md 'Portal.Detection.Template.ToString()') | Overridden ToString function. |
+| [ToString()](Template.ToString().md 'Portal.Detect.Template.ToString()') | Overridden ToString function. |
 
 | Operators | |
 | :--- | :--- |
-| [implicit operator Template(string)](Template.implicitoperatorTemplate(string).md 'Portal.Detection.Template.op_Implicit Portal.Detection.Template(string)') | Cast operator. <br/> Allows you to cast a string to a Template from your "Templates" folder. |
+| [implicit operator Template(string)](Template.implicitoperatorTemplate(string).md 'Portal.Detect.Template.op_Implicit Portal.Detect.Template(string)') | Cast operator. <br/> Allows you to cast a string to a Template from your "Templates" folder. |

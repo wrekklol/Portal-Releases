@@ -6,8 +6,8 @@
 Modifiers to send key with.
 
 ```csharp
-public Portal.Input.EKeyModifiers Modifiers { get; set; }
+public Portal.Input.EKeyModifier Modifiers { get; set; }
 ```
 
 #### Property Value
-[EKeyModifiers](EKeyModifiers.md 'Portal.Input.EKeyModifiers')
+[EKeyModifier](EKeyModifier.md 'Portal.Input.EKeyModifier')

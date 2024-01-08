@@ -1,5 +1,5 @@
 #### [Portal](index.md 'index')
-### [Portal.Detection](Portal.Detection.md 'Portal.Detection').[SearchOptions](SearchOptions.md 'Portal.Detection.SearchOptions')
+### [Portal.Detect](Portal.Detect.md 'Portal.Detect').[SearchOptions](SearchOptions.md 'Portal.Detect.SearchOptions')
 
 ## SearchOptions.ToString() Method
 
@@ -11,4 +11,4 @@ public override string ToString();
 
 #### Returns
 [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')  
-Output: ([Region](SearchOptions.Region.md 'Portal.Detection.SearchOptions.Region'), [Threshold](SearchOptions.Threshold.md 'Portal.Detection.SearchOptions.Threshold'), [Method](SearchOptions.Method.md 'Portal.Detection.SearchOptions.Method'), [ImageType](SearchOptions.ImageType.md 'Portal.Detection.SearchOptions.ImageType'))
+Output: (R[Region](SearchOptions.Region.md 'Portal.Detect.SearchOptions.Region'), T[Threshold](SearchOptions.Threshold.md 'Portal.Detect.SearchOptions.Threshold'), M[Method](SearchOptions.Method.md 'Portal.Detect.SearchOptions.Method'), C[ColorType](SearchOptions.ColorType.md 'Portal.Detect.SearchOptions.ColorType'))

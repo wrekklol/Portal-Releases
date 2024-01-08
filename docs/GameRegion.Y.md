@@ -3,7 +3,7 @@
 
 ## GameRegion.Y Property
 
-Y coordinate.
+Y in game coordinates.
 
 ```csharp
 public int Y { get; }

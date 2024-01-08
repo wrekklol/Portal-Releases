@@ -3,7 +3,7 @@
 
 ## GameRegion.Top Property
 
-Top coordinate.
+Top in game coordinates.
 
 ```csharp
 public int Top { get; }

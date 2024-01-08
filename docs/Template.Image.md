@@ -1,5 +1,5 @@
 #### [Portal](index.md 'index')
-### [Portal.Detection](Portal.Detection.md 'Portal.Detection').[Template](Template.md 'Portal.Detection.Template')
+### [Portal.Detect](Portal.Detect.md 'Portal.Detect').[Template](Template.md 'Portal.Detect.Template')
 
 ## Template.Image Property
 

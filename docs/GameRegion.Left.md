@@ -3,7 +3,7 @@
 
 ## GameRegion.Left Property
 
-Left coordinate.
+Left in game coordinates.
 
 ```csharp
 public int Left { get; }

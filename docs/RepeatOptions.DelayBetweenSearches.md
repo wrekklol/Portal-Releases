@@ -1,5 +1,5 @@
 #### [Portal](index.md 'index')
-### [Portal.Detection](Portal.Detection.md 'Portal.Detection').[RepeatOptions](RepeatOptions.md 'Portal.Detection.RepeatOptions')
+### [Portal.Detect](Portal.Detect.md 'Portal.Detect').[RepeatOptions](RepeatOptions.md 'Portal.Detect.RepeatOptions')
 
 ## RepeatOptions.DelayBetweenSearches Property
 

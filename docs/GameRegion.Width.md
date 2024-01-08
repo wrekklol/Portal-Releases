@@ -3,7 +3,7 @@
 
 ## GameRegion.Width Property
 
-Width.
+Width in game coordinates.
 
 ```csharp
 public int Width { get; }

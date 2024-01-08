@@ -1,13 +1,13 @@
 #### [Portal](index.md 'index')
-### [Portal.Detection](Portal.Detection.md 'Portal.Detection').[SearchOptions](SearchOptions.md 'Portal.Detection.SearchOptions')
+### [Portal.Detect](Portal.Detect.md 'Portal.Detect').[SearchOptions](SearchOptions.md 'Portal.Detect.SearchOptions')
 
 ## SearchOptions.Threshold Property
 
 Search threshold.
 
 ```csharp
-public double Threshold { get; set; }
+public System.Nullable<double> Threshold { get; set; }
 ```
 
 #### Property Value
-[System.Double](https://docs.microsoft.com/en-us/dotnet/api/System.Double 'System.Double')
+[System.Nullable&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Nullable-1 'System.Nullable`1')[System.Double](https://docs.microsoft.com/en-us/dotnet/api/System.Double 'System.Double')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Nullable-1 'System.Nullable`1')

@@ -1,5 +1,5 @@
 #### [Portal](index.md 'index')
-### [Portal.Detection](Portal.Detection.md 'Portal.Detection').[Match](Match.md 'Portal.Detection.Match')
+### [Portal.Detect](Portal.Detect.md 'Portal.Detect').[Match](Match.md 'Portal.Detect.Match')
 
 ## Match.Confidence Property
 

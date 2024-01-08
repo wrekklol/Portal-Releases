@@ -1,13 +1,13 @@
 #### [Portal](index.md 'index')
-### [Portal.Detection](Portal.Detection.md 'Portal.Detection').[Template](Template.md 'Portal.Detection.Template')
+### [Portal.Detect](Portal.Detect.md 'Portal.Detect').[Template](Template.md 'Portal.Detect.Template')
 
 ## Template.Size Property
 
 Template size, which is set from image matrix size.
 
 ```csharp
-public Portal.GameSize Size { get; set; }
+public Portal.Size Size { get; set; }
 ```
 
 #### Property Value
-[GameSize](GameSize.md 'Portal.GameSize')
+[Size](Size.md 'Portal.Size')

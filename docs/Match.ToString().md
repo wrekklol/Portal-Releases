@@ -1,5 +1,5 @@
 #### [Portal](index.md 'index')
-### [Portal.Detection](Portal.Detection.md 'Portal.Detection').[Match](Match.md 'Portal.Detection.Match')
+### [Portal.Detect](Portal.Detect.md 'Portal.Detect').[Match](Match.md 'Portal.Detect.Match')
 
 ## Match.ToString() Method
 
@@ -11,4 +11,4 @@ public override string ToString();
 
 #### Returns
 [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')  
-Output: ([Region](Match.Region.md 'Portal.Detection.Match.Region'), [Confidence](Match.Confidence.md 'Portal.Detection.Match.Confidence'))
+Output: ([Template](Match.Template.md 'Portal.Detect.Match.Template'), [Region](Match.Region.md 'Portal.Detect.Match.Region'), [Confidence](Match.Confidence.md 'Portal.Detect.Match.Confidence'))

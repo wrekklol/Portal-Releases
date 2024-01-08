@@ -3,7 +3,7 @@
 
 ## GameRegion.Rect Property
 
-Region as System.Drawing.Rectangle.
+Region as System.Drawing.Rectangle in game coordinates.
 
 ```csharp
 public System.Drawing.Rectangle Rect { get; }

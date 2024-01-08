@@ -3,10 +3,10 @@
 
 ## GamePoint.X Property
 
-X coordinate
+X coordinate.
 
 ```csharp
-public int X { get; set; }
+public int X { get; }
 ```
 
 #### Property Value

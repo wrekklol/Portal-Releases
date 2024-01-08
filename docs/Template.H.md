@@ -1,9 +1,9 @@
 #### [Portal](index.md 'index')
-### [Portal.Detection](Portal.Detection.md 'Portal.Detection').[Template](Template.md 'Portal.Detection.Template')
+### [Portal.Detect](Portal.Detect.md 'Portal.Detect').[Template](Template.md 'Portal.Detect.Template')
 
 ## Template.H Property
 
-Template height, gets [Height](GameSize.Height.md 'Portal.GameSize.Height').
+Template height, gets [Height](Size.Height.md 'Portal.Size.Height').
 
 ```csharp
 public int H { get; }

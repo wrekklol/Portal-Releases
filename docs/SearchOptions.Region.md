@@ -1,13 +1,13 @@
 #### [Portal](index.md 'index')
-### [Portal.Detection](Portal.Detection.md 'Portal.Detection').[SearchOptions](SearchOptions.md 'Portal.Detection.SearchOptions')
+### [Portal.Detect](Portal.Detect.md 'Portal.Detect').[SearchOptions](SearchOptions.md 'Portal.Detect.SearchOptions')
 
 ## SearchOptions.Region Property
 
 Search region.
 
 ```csharp
-public Portal.GameRegion Region { get; set; }
+public System.Nullable<Portal.GameRegion> Region { get; set; }
 ```
 
 #### Property Value
-[GameRegion](GameRegion.md 'Portal.GameRegion')
+[System.Nullable&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Nullable-1 'System.Nullable`1')[GameRegion](GameRegion.md 'Portal.GameRegion')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Nullable-1 'System.Nullable`1')

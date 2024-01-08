@@ -1,5 +1,5 @@
 #### [Portal](index.md 'index')
-### [Portal.Detection](Portal.Detection.md 'Portal.Detection').[Template](Template.md 'Portal.Detection.Template')
+### [Portal.Detect](Portal.Detect.md 'Portal.Detect').[Template](Template.md 'Portal.Detect.Template')
 
 ## Template.ToString() Method
 
@@ -11,4 +11,4 @@ public override string ToString();
 
 #### Returns
 [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')  
-Output: ([Name](Template.Name.md 'Portal.Detection.Template.Name'), [Threshold](Template.Threshold.md 'Portal.Detection.Template.Threshold'), [Method](Template.Method.md 'Portal.Detection.Template.Method'), [ImageType](Template.ImageType.md 'Portal.Detection.Template.ImageType'))
+Output: ([Name](Template.Name.md 'Portal.Detect.Template.Name'), [Threshold](Template.Threshold.md 'Portal.Detect.Template.Threshold'), [Method](Template.Method.md 'Portal.Detect.Template.Method'), [ColorType](Template.ColorType.md 'Portal.Detect.Template.ColorType'), [DefaultRegion](Template.DefaultRegion.md 'Portal.Detect.Template.DefaultRegion'), [FramesToSearch](Template.FramesToSearch.md 'Portal.Detect.Template.FramesToSearch'))

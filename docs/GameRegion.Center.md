@@ -3,11 +3,11 @@
 
 ## GameRegion.Center Property
 
-Center of region.
+Center of region in percent.
 
 ```csharp
-public (int CenterX,int CenterY) Center { get; }
+public Portal.GamePoint Center { get; }
 ```
 
 #### Property Value
-[&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.ValueTuple 'System.ValueTuple')[System.Int32](https://docs.microsoft.com/en-us/dotnet/api/System.Int32 'System.Int32')[,](https://docs.microsoft.com/en-us/dotnet/api/System.ValueTuple 'System.ValueTuple')[System.Int32](https://docs.microsoft.com/en-us/dotnet/api/System.Int32 'System.Int32')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.ValueTuple 'System.ValueTuple')
+[GamePoint](GamePoint.md 'Portal.GamePoint')

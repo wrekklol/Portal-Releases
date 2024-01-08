@@ -3,7 +3,7 @@
 
 ## GameRegion.Bottom Property
 
-Buttom coordinate.
+Buttom in game coordinates.
 
 ```csharp
 public int Bottom { get; }

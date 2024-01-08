@@ -4,14 +4,15 @@
 
 | Namespaces | |
 | :--- | :--- |
-| [Nodify.Playground](Nodify.Playground.md 'Nodify.Playground') | |
-| [Nodify.StateMachine](Nodify.StateMachine.md 'Nodify.StateMachine') | |
 | [Portal](Portal.md 'Portal') | |
-| [Portal.Detection](Portal.Detection.md 'Portal.Detection') | |
-| [Portal.Detection.Capture](Portal.Detection.Capture.md 'Portal.Detection.Capture') | |
+| [Portal.Detect](Portal.Detect.md 'Portal.Detect') | |
 | [Portal.Input](Portal.Input.md 'Portal.Input') | |
-| [Portal.Scripting](Portal.Scripting.md 'Portal.Scripting') | |
-| [Portal.Scripting.Visual](Portal.Scripting.Visual.md 'Portal.Scripting.Visual') | |
-| [Portal.Source.GUI.Widgets](Portal.Source.GUI.Widgets.md 'Portal.Source.GUI.Widgets') | |
+| [Portal.Printing](Portal.Printing.md 'Portal.Printing') | |
+| [Portal.Script](Portal.Script.md 'Portal.Script') | |
+| [Portal.Script.Languages](Portal.Script.Languages.md 'Portal.Script.Languages') | |
+| [Portal.Script.Workers](Portal.Script.Workers.md 'Portal.Script.Workers') | |
 | [Portal.Utility](Portal.Utility.md 'Portal.Utility') | |
-| [XamlGeneratedNamespace](XamlGeneratedNamespace.md 'XamlGeneratedNamespace') | |
+| [Windows.Win32](Windows.Win32.md 'Windows.Win32') | |
+| [Windows.Win32.Foundation](Windows.Win32.Foundation.md 'Windows.Win32.Foundation') | |
+| [Windows.Win32.Graphics.Gdi](Windows.Win32.Graphics.Gdi.md 'Windows.Win32.Graphics.Gdi') | |
+| [Windows.Win32.UI.Input.KeyboardAndMouse](Windows.Win32.UI.Input.KeyboardAndMouse.md 'Windows.Win32.UI.Input.KeyboardAndMouse') | |

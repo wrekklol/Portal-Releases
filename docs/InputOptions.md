@@ -11,23 +11,15 @@ public struct InputOptions
 
 | Constructors | |
 | :--- | :--- |
-| [InputOptions(EKeys, EKeyState, EKeyModifiers, int, int, bool, Nullable&lt;uint&gt;)](InputOptions.InputOptions(EKeys,EKeyState,EKeyModifiers,int,int,bool,Nullable_uint_).md 'Portal.Input.InputOptions.InputOptions(Portal.Input.EKeys, Portal.Input.EKeyState, Portal.Input.EKeyModifiers, int, int, bool, System.Nullable<uint>)') | SendInputOptions that takes a key, modifiers, a press delay, a release delay, auto release info and extra data. |
+| [InputOptions(EKeyModifier, int, int, bool)](InputOptions.InputOptions(EKeyModifier,int,int,bool).md 'Portal.Input.InputOptions.InputOptions(Portal.Input.EKeyModifier, int, int, bool)') | InputOptions constructor that takes modifiers, a press delay and a release delay. |
 
 | Properties | |
 | :--- | :--- |
-| [bAutoReleaseModifiers](InputOptions.bAutoReleaseModifiers.md 'Portal.Input.InputOptions.bAutoReleaseModifiers') | If true, extra events with release input modifiers will be sent. |
-| [Data](InputOptions.Data.md 'Portal.Input.InputOptions.Data') | Extra data to send, like scroll wheel delta, or which mouse X button was pressed. |
-| [Key](InputOptions.Key.md 'Portal.Input.InputOptions.Key') | Key to send. |
-| [KeyState](InputOptions.KeyState.md 'Portal.Input.InputOptions.KeyState') | Key state to send key with (Up or Down). |
+| [bForceSend](InputOptions.bForceSend.md 'Portal.Input.InputOptions.bForceSend') | Sends even when script is stopped. |
 | [Modifiers](InputOptions.Modifiers.md 'Portal.Input.InputOptions.Modifiers') | Modifiers to send key with. |
 | [PressDelay](InputOptions.PressDelay.md 'Portal.Input.InputOptions.PressDelay') | Delay before key press. |
 | [ReleaseDelay](InputOptions.ReleaseDelay.md 'Portal.Input.InputOptions.ReleaseDelay') | Delay before key release. |
 
-| Methods | |
-| :--- | :--- |
-| [IsMouseInput()](InputOptions.IsMouseInput().md 'Portal.Input.InputOptions.IsMouseInput()') | Checks if this is mouse input. |
-
 | Operators | |
 | :--- | :--- |
-| [implicit operator InputOptions(EKeys)](InputOptions.implicitoperatorInputOptions(EKeys).md 'Portal.Input.InputOptions.op_Implicit Portal.Input.InputOptions(Portal.Input.EKeys)') | Cast operator. <br/> Allows you to cast [EKeys](EKeys.md 'Portal.Input.EKeys') to input options. |
-| [implicit operator InputOptions(string)](InputOptions.implicitoperatorInputOptions(string).md 'Portal.Input.InputOptions.op_Implicit Portal.Input.InputOptions(string)') | Cast operator. <br/>           Allows you to cast an input binding string to input options. |
+| [implicit operator InputOptions(EKeyModifier)](InputOptions.implicitoperatorInputOptions(EKeyModifier).md 'Portal.Input.InputOptions.op_Implicit Portal.Input.InputOptions(Portal.Input.EKeyModifier)') | Cast operator. <br/> Allows you to cast [EKeyModifier](EKeyModifier.md 'Portal.Input.EKeyModifier') to input options. |

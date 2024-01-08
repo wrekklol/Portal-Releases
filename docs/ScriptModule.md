@@ -1,112 +1,37 @@
 #### [Portal](index.md 'index')
-### [Portal.Scripting](Portal.Scripting.md 'Portal.Scripting')
+### [Portal.Script](Portal.Script.md 'Portal.Script')
 
 ## ScriptModule Class
 
-Module which contains scripted behaviours.
+Module which contains scripted behaviors.
 
 ```csharp
-public sealed class ScriptModule :
-Portal.IReloadable
+public class ScriptModule
 ```
 
 Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object') &#129106; ScriptModule
 
-Implements [Portal.IReloadable](https://docs.microsoft.com/en-us/dotnet/api/Portal.IReloadable 'Portal.IReloadable')
+Derived  
+&#8627; [PythonModule](PythonModule.md 'Portal.Script.Languages.PythonModule')
 
-### Example
-There is an example of a module included, it is located in your Portal folder inside a folder called "Modules".  
-  
-To create a new module, simply create a new folder in your "Modules" folder, and create a file called "YourAwesomeModule.module", and a file called "YourAwesomeModule.include".   
-  
-To create a behaviour, simply create a new folder in your new module folder, you can call it whatever you like, though "Behaviours" is recommended. Then create a file called "YourAwesomeBehaviour.cs", in which you need to create a class that inherits from [IScriptBehaviour](IScriptBehaviour.md 'Portal.Scripting.IScriptBehaviour'), and has four functions called [Init()](IScriptBehaviour.Init().md 'Portal.Scripting.IScriptBehaviour.Init()'), [Start()](IScriptBehaviour.Start().md 'Portal.Scripting.IScriptBehaviour.Start()'), [Run()](IScriptBehaviour.Run().md 'Portal.Scripting.IScriptBehaviour.Run()') and [Stop()](IScriptBehaviour.Stop().md 'Portal.Scripting.IScriptBehaviour.Stop()').  
-  
-Example behaviour file:  
-  
-```csharp  
-public class ExampleBehaviour : IScriptBehaviour  
-{  
-    public int LoopAmount => 3;  
-  
-  
-  
-    public void Init()  
-    {  
-        Print("Hello from Behaviour Initialization!");  
-    }  
-      
-    public void Start()  
-    {  
-        Print("Hello from Behaviour Start!");  
-    }  
-  
-    public void Run()  
-    {  
-        Print("Hello from Behaviour Run!");  
-  
-        // Finds a template from your "Templates" folder in your module folder, and clicks it!  
-        //WaitUntilFound("Example Template")?.Draw().Click();  
-    }  
-      
-    public void Stop()  
-    {  
-        Print("Hello from Behaviour Stop!");  
-    }  
-}  
-```  
-  
-Then you just need to add the new behaviour to your .module file. To do this, just add two lines:  
-  
-```csharp  
-#load "Behaviours\YourAwesomeBehaviour.cs"  
-LoadBehaviour(typeof(YourAwesomeBehaviour));  
-```  
-  
-That's it! Now you can run your module from the GUI, but you should probably put something in the functions you created first.  
-  
-Behaviours are compiled with some default includes (`using NamespaceHere;`). If more is needed, put them into your .include file without the "using" part and without the semi colon.  
-Example .include file:  
-  
-```csharp  
-System.Threading  
-System.Reflection  
-ThisCustomNamespaceIsIncluded1  
-ThisCustomNamespaceIsIncluded2  
-ThisCustomNamespaceIsIncluded3  
-```  
-Those namespaces will now get included on compilation so your behaviours can use them.  
-  
-Some things are also statically included, which means you can use their variables and functions without having to prefix them with their type.   
-So for example you can just type:  
-  
-```csharp  
-Print("Hello World!");  
-```  
-Without having to type  
-  
-```csharp  
-Printer.Print("Hello World!");  
-```
-
-### Remarks
-Default includes of a CSharp Module:  
-  
-```csharp  
-private readonly string[] CommonIncludes =  
-{  
-   "Portal",  
-   "Portal.Globals",  
-   "Portal.Config",  
-   "Portal.Printer",  
-   "Portal.Scripting",  
-   "Portal.GameInfo",  
-   "Portal.Utility", "Portal.Utility.ArrayHelpers", "Portal.Utility.DebugHelpers", "Portal.Utility.DelegateHelpers", "Portal.Utility.MathHelpers", "Portal.Utility.ScriptHelpers", "Portal.Utility.ThreadHelpers",  
-   "Portal.Input", "Portal.Input.Input",  
-   "Portal.Detection", "OpenCvSharp",  
-   "System", "System.Linq", "System.Drawing", "System.Collections.Generic"  
-};  
-```
+| Properties | |
+| :--- | :--- |
+| [Behaviors](ScriptModule.Behaviors.md 'Portal.Script.ScriptModule.Behaviors') | Behaviors in the module. |
+| [bHasScriptChanged](ScriptModule.bHasScriptChanged.md 'Portal.Script.ScriptModule.bHasScriptChanged') | Whether the module's script has changed since last reload. |
+| [ErrorCount](ScriptModule.ErrorCount.md 'Portal.Script.ScriptModule.ErrorCount') | Amount of errors that occurred while compiling the module. |
+| [Files](ScriptModule.Files.md 'Portal.Script.ScriptModule.Files') | Files in the module. |
+| [ModuleData](ScriptModule.ModuleData.md 'Portal.Script.ScriptModule.ModuleData') | Module's data, like module type, accepted extensions, etc. |
+| [ModuleFile](ScriptModule.ModuleFile.md 'Portal.Script.ScriptModule.ModuleFile') | Module's main file. |
+| [ModuleHash](ScriptModule.ModuleHash.md 'Portal.Script.ScriptModule.ModuleHash') | Hash of the module's folder. |
+| [ModulePath](ScriptModule.ModulePath.md 'Portal.Script.ScriptModule.ModulePath') | Path to the module. |
+| [Name](ScriptModule.Name.md 'Portal.Script.ScriptModule.Name') | Name of the module. |
+| [TemplatePath](ScriptModule.TemplatePath.md 'Portal.Script.ScriptModule.TemplatePath') | Path to the module's template folder. |
+| [Templates](ScriptModule.Templates.md 'Portal.Script.ScriptModule.Templates') | Templates in the module. |
 
 | Methods | |
 | :--- | :--- |
-| [LoadBehaviour(Type)](ScriptModule.LoadBehaviour(Type).md 'Portal.Scripting.ScriptModule.LoadBehaviour(System.Type)') | Call this in your .module file for each behaviour you want to load.<br/>Remember to put `#load "Behaviours\YourBehaviour.cs"` before calling this function to load the file first. |
+| [CompileModule()](ScriptModule.CompileModule().md 'Portal.Script.ScriptModule.CompileModule()') | Compiles the module. |
+| [Initialize(ScriptFile)](ScriptModule.Initialize(ScriptFile).md 'Portal.Script.ScriptModule.Initialize(Portal.Script.ScriptFile)') | Initializes the module. |
+| [InitializeFile(string)](ScriptModule.InitializeFile(string).md 'Portal.Script.ScriptModule.InitializeFile(string)') | Initializes a script file. |
+| [LoadTemplates()](ScriptModule.LoadTemplates().md 'Portal.Script.ScriptModule.LoadTemplates()') | Loads the module's templates.<br/>Templates are loaded from the module's [TemplatePath](ScriptModule.TemplatePath.md 'Portal.Script.ScriptModule.TemplatePath').<br/><br/>Each template is loaded as a [Template](Template.md 'Portal.Detect.Template') object, which contains the template's name, image, mask, and metadata.<br/>If a template has an associated .meta file, the metadata will be loaded from it. |
+| [Reload()](ScriptModule.Reload().md 'Portal.Script.ScriptModule.Reload()') | Reloads the module. |

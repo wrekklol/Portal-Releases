@@ -1,13 +1,13 @@
 #### [Portal](index.md 'index')
-### [Portal.Detection](Portal.Detection.md 'Portal.Detection').[Template](Template.md 'Portal.Detection.Template')
+### [Portal.Detect](Portal.Detect.md 'Portal.Detect').[Template](Template.md 'Portal.Detect.Template')
 
 ## Template.Method Property
 
-Template method. <br/> See [Template](Template.md 'Portal.Detection.Template') remarks.
+Template method. <br/> See [Template](Template.md 'Portal.Detect.Template') remarks.
 
 ```csharp
-public OpenCvSharp.TemplateMatchModes Method { get; set; }
+public System.Nullable<OpenCvSharp.TemplateMatchModes> Method { get; set; }
 ```
 
 #### Property Value
-[OpenCvSharp.TemplateMatchModes](https://docs.microsoft.com/en-us/dotnet/api/OpenCvSharp.TemplateMatchModes 'OpenCvSharp.TemplateMatchModes')
+[System.Nullable&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Nullable-1 'System.Nullable`1')[OpenCvSharp.TemplateMatchModes](https://docs.microsoft.com/en-us/dotnet/api/OpenCvSharp.TemplateMatchModes 'OpenCvSharp.TemplateMatchModes')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Nullable-1 'System.Nullable`1')
