@@ -2,7 +2,7 @@
  Portal is a scripting framework for automating tasks.
 
 Download the [latest release](https://github.com/wrekklol/Portal-Releases/releases/latest), and have a look at the documentation.\
-[Here](https://www.mediafire.com/file/apftieq1511ohzb/Helpers.7z/file) you can download some sample templates for RuneLite.
+[Here](https://www.mediafire.com/file/7swngd5feqjia1o/Helpers.zip/file) you can download some sample templates for RuneLite.
 
 [**Documentation here.**](https://github.com/wrekklol/Portal-Releases/blob/main/docs/index.md)<br>
 Information on how to create a module and start scripting is in the Examples section.
