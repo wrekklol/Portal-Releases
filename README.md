@@ -33,7 +33,7 @@ def Start():
 
 Now whenever you start the script, "Hello World" will get printed to the console, [Magic](https://tenor.com/view/mr-bean-gif-23140940)!
 
-Note: "from ...Stubs.PythonStubs import *" must be defined for it to be considered a behavior script.
+Note: "from ...Stubs.PythonStubs import *" as well as one of the 5 functions below must be defined for it to be considered a behavior script.
 
 You can also easily start detecting templates and sending input etc.
 But first, you should probably edit your "Game Window Title" to the window title you want to capture in the config menu.
