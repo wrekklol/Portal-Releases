@@ -14,7 +14,7 @@ Features:
 
 Planned Features:
 * More scripting languages, probably Lua, C# and Visual Script
-* More Image Detection algorithm
+* More detection algorithms
 * OCR
 * Maybe more?
 
