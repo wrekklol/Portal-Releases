@@ -9,13 +9,16 @@ Information on how to create a module and start scripting is in the Examples sec
 
 Features:
 * Image Detection
+* Text Detection
+* Pixel Color Finder
+* Image/Template Editor
 * Human-like mouse movement
+* Input binding and sending system
 * Python Scripting
 
 Planned Features:
 * More scripting languages, probably Lua, C# and Visual Script
 * More detection algorithms
-* OCR
 * Maybe more?
 
 # Examples
