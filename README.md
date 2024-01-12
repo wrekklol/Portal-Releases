@@ -34,7 +34,7 @@ def Start():
     Print("Hello World")
 ```
 
-Now whenever you start the script, "Hello World" will get printed to the console, [Magic](https://tenor.com/view/mr-bean-gif-23140940)!
+Now whenever you start the script, "Hello World" will get printed to the console, [magic](https://tenor.com/view/mr-bean-gif-23140940)!
 
 Note: "from ...Stubs.PythonStubs import *" as well as one of the 5 functions below must be defined for it to be considered a behavior script.
 
