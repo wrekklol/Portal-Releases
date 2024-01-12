@@ -115,21 +115,22 @@ If no options are specified, it will use the templates metadata, which is obtain
 <br/>
 
 ### [FindPixelColor]()
-This function will try to find the color at the specified point.
-If you already have a frame you want to find a color in, you can specify that.
+This function will try to find the color at the specified point.\
+If you already have a frame you want to find a color in, you can specify that.\
 You can also specify [RepeatOptions](https://github.com/wrekklol/Portal-Releases/blob/main/docs/RepeatOptions.md) to change how many times it should try to find the pixel color.
 
 Example:
 ```Python
 found_color = FindPixelColor(50, 50)
 ```
-This will try to find the color at the center pixel of the screen (50% of screen width and 50% of screen height).
+This will try to find the color at the center pixel of the screen (50% of screen width and 50% of screen height).\
 If more control over the point is needed, you can use the FindPixelColor overload that uses a [GamePoint](https://github.com/wrekklol/Portal-Releases/blob/main/docs/GamePoint.md).
 
 <br/>
 
 ### [FindText]()
-This function will try to find all matches of the specified text, using a [text library]().
+This function will try to find all matches of the specified text, using a [text library]().\
+You must make a [text library]() before calling this function. This can be done using [MakeTextLibrary]().\
 It will return a list of [regions]() and scores for the found text.
 
 Example:
@@ -140,7 +141,8 @@ matches = FindText("Very cool text", "MyTextLibrary");
 <br/>
 
 ### [FindTextExact]()
-This function will try to find all exact matches of the specified text, using a [text library]().
+This function will try to find all exact matches of the specified text, using a [text library]().\
+You must make a [text library]() before calling this function. This can be done using [MakeTextLibrary]().\
 It will return a list of [regions]() for the found text.
 
 Example:
@@ -151,7 +153,8 @@ matches = FindTextExact("Very cool text", "MyTextLibrary");
 <br/>
 
 ### [FindTextBest]()
-This function will try to find the best match of the specified text, using a [text library]().
+This function will try to find the best match of the specified text, using a [text library]().\
+You must make a [text library]() before calling this function. This can be done using [MakeTextLibrary]().\
 It will return a [region]() and a score for the found text.
 
 Example:
@@ -162,7 +165,8 @@ region, score = FindTextBest("Very cool text", "MyTextLibrary");
 <br/>
 
 ### [FindTextBestExact]()
-This function will try to find the best exact match of the specified text, using a [text library]().
+This function will try to find the best exact match of the specified text, using a [text library]().\
+You must make a [text library]() before calling this function. This can be done using [MakeTextLibrary]().\
 It will return a [region]() for the found text.
 
 Example:
@@ -173,7 +177,8 @@ region = FindTextBestExact("Very cool text", "MyTextLibrary");
 <br/>
 
 ### [FindTextFirst]()
-This function will try to find the first match of the specified text, using a [text library]().
+This function will try to find the first match of the specified text, using a [text library]().\
+You must make a [text library]() before calling this function. This can be done using [MakeTextLibrary]().\
 It will return a [region]() and a score for the found text.
 
 Example:
@@ -184,7 +189,8 @@ region, score = FindTextFirst("Very cool text", "MyTextLibrary");
 <br/>
 
 ### [FindTextFirstExact]()
-This function will try to find the first exact match of the specified text, using a [text library]().
+This function will try to find the first exact match of the specified text, using a [text library]().\
+You must make a [text library]() before calling this function. This can be done using [MakeTextLibrary]().\
 It will return a [region]() for the found text.
 
 Example:
@@ -197,7 +203,7 @@ region = FindTextFirstExact("Very cool text", "MyTextLibrary");
 ## Sending Input
 
 ### [MouseMove]() 
-This will move your mouse with human-like movements towards the given [GamePoint](https://github.com/wrekklol/Portal-Releases/blob/main/docs/GamePoint.md).  
+This will move your mouse with human-like movements towards the given [GamePoint](https://github.com/wrekklol/Portal-Releases/blob/main/docs/GamePoint.md).\
 It can be configured using the [MouseMoveOptions](https://github.com/wrekklol/Portal-Releases/blob/main/docs/MouseMoveOptions.md) parameter, to specify the speed and wind etc. Can also be configured using the config menu.
 
 Example:
