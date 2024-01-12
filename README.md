@@ -74,14 +74,14 @@ def Clear: # Called when switching behavior, can be used to clear some stuff tha
 
 ## Detection
 
-### [FindMatch](https://github.com/wrekklol/Portal-Releases/blob/main/docs/ScriptCallables.FindMatch(string,SearchOptions,RepeatOptions,Action,bool).md)
-This function will try to find your template by its filename, and return the [Match](https://github.com/wrekklol/Portal-Releases/blob/main/docs/Match.md) found.  
+### [FindMatch](https://github.com/wrekklol/Portal-Releases/blob/main/docs/ScriptCallables.FindMatch(Template,SearchOptions,RepeatOptions,Action,bool).md)
+This function will try to find a [Match](https://github.com/wrekklol/Portal-Releases/blob/main/docs/Match.md) of the specified template.  
 You can specify some [SearchOptions](https://github.com/wrekklol/Portal-Releases/blob/main/docs/SearchOptions.md) to narrow down your search a bit, and [RepeatOptions](https://github.com/wrekklol/Portal-Releases/blob/main/docs/RepeatOptions.md) to specify how many times it should try to find the template.
 You can also specify an [Action](https://learn.microsoft.com/en-us/dotnet/api/system.action?view=net-8.0) to be called if it could NOT find a match.
 
 Example:
 ```Python
-match = FindMatch("MyTemplate", SearchOptions(GameRegion(40, 40, 60, 60)), RepeatOptions(5, 100));
+match = FindMatch("MyTemplate", SearchOptions(GameRegion.MakeFromPercent(40, 40, 60, 60)), RepeatOptions(5, 100));
 ```
 This will try to find the template with the filename "MyTemplate" within 20% of the screen from the center (starts at 40% and ends at 60%) and will repeat 5 times(or until found) with 100ms intervals.
 
@@ -94,14 +94,14 @@ If no options are specified, it will use the templates metadata, which is obtain
 
 <br/>
 
-### [FindMatches](https://github.com/wrekklol/Portal-Releases/blob/main/docs/ScriptCallables.FindMatches(string,SearchOptions,RepeatOptions,Action,bool).md)
-This function will try to find your template by its filename, and return the [Matches](https://github.com/wrekklol/Portal-Releases/blob/main/docs/Match.md) found.
+### [FindMatches](https://github.com/wrekklol/Portal-Releases/blob/main/docs/ScriptCallables.FindMatches(Template,SearchOptions,RepeatOptions,Action,bool).md)
+This function will try to find all [matches](https://github.com/wrekklol/Portal-Releases/blob/main/docs/Match.md) of the specified template.
 You can specify some [SearchOptions](https://github.com/wrekklol/Portal-Releases/blob/main/docs/SearchOptions.md) to narrow down your search a bit, and [RepeatOptions](https://github.com/wrekklol/Portal-Releases/blob/main/docs/RepeatOptions.md) to specify how many times it should try to find the template.
 You can also specify an [Action](https://learn.microsoft.com/en-us/dotnet/api/system.action?view=net-8.0) to be called if it could NOT find a match.
 
 Example:
 ```Python
-matches = FindMatches("YourNewTemplate", SearchOptions(GameRegion(40, 40, 60, 60)), RepeatOptions(5, 100));
+matches = FindMatches("YourNewTemplate", SearchOptions(GameRegion.MakeFromPercent(40, 40, 60, 60)), RepeatOptions(5, 100));
 ```
 This will try to find the template with the filename "MyTemplate" within 20% of the screen from the center (starts at 40% and ends at 60%) and will repeat 5 times(or until found) with 100ms intervals.
 
@@ -125,6 +125,72 @@ found_color = FindPixelColor(50, 50)
 ```
 This will try to find the color at the center pixel of the screen (50% of screen width and 50% of screen height).
 If more control over the point is needed, you can use the FindPixelColor overload that uses a [GamePoint](https://github.com/wrekklol/Portal-Releases/blob/main/docs/GamePoint.md).
+
+<br/>
+
+### [FindText]()
+This function will try to find all matches of the specified text, using a [text library]().
+It will return a list of [regions]() and scores for the found text.
+
+Example:
+```Python
+matches = FindText("Very cool text", "MyTextLibrary");
+```
+
+<br/>
+
+### [FindTextExact]()
+This function will try to find all exact matches of the specified text, using a [text library]().
+It will return a list of [regions]() for the found text.
+
+Example:
+```Python
+matches = FindTextExact("Very cool text", "MyTextLibrary");
+```
+
+<br/>
+
+### [FindTextBest]()
+This function will try to find the best match of the specified text, using a [text library]().
+It will return a [region]() and a score for the found text.
+
+Example:
+```Python
+region, score = FindTextBest("Very cool text", "MyTextLibrary");
+```
+
+<br/>
+
+### [FindTextBestExact]()
+This function will try to find the best exact match of the specified text, using a [text library]().
+It will return a [region]() for the found text.
+
+Example:
+```Python
+region = FindTextBestExact("Very cool text", "MyTextLibrary");
+```
+
+<br/>
+
+### [FindTextFirst]()
+This function will try to find the first match of the specified text, using a [text library]().
+It will return a [region]() and a score for the found text.
+
+Example:
+```Python
+region, score = FindTextFirst("Very cool text", "MyTextLibrary");
+```
+
+<br/>
+
+### [FindTextFirstExact]()
+This function will try to find the first exact match of the specified text, using a [text library]().
+It will return a [region]() for the found text.
+
+Example:
+```Python
+region = FindTextFirstExact("Very cool text", "MyTextLibrary");
+```
 
 <br/>
 
