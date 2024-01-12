@@ -128,6 +128,16 @@ If more control over the point is needed, you can use the FindPixelColor overloa
 
 <br/>
 
+### [MakeTextLibrary]()
+This function will try make a library of all templates in a folder.
+
+Example:
+```Python
+MakeTextLibrary("MyTextLibrary");
+```
+
+<br/>
+
 ### [FindText]()
 This function will try to find all matches of the specified text, using a [text library]().\
 You must make a [text library]() before calling this function. This can be done using [MakeTextLibrary]().\
