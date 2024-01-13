@@ -129,7 +129,16 @@ If more control over the point is needed, you can use the FindPixelColor overloa
 <br/>
 
 ### [MakeTextLibrary]()
-This function will try make a library of all templates in a folder.
+This function will try to make a library of all templates in a folder.\
+The path, like template paths in general, is relative to your modules template folder.\
+So if you had your module named "MyModule", the path would be "MyModule/Templates/MyTextLibrary".
+
+You should make a template(.png image) for every character you want to be able to recognize, and name it the same as the character.\
+A good idea is to split up the Lowercase and Uppercase letters into different folders, as you cannot name the templates both "a" and "A" in the same folder.\
+I recommend a folder for Lowercase, Uppercase, Digits and Special. Though special character support is limited right now.
+
+You should call the function in your Init function, as it should only be created once.\
+It automatically gets cleaned up upon script change.
 
 Example:
 ```Python
