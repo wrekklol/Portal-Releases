@@ -260,7 +260,8 @@ Which will move the mouse to the [center](https://github.com/wrekklol/Portal-Rel
 <br/>
 
 ### [SendInput](https://github.com/wrekklol/Portal-Releases/blob/main/docs/InputManager.SendInput(InputOptions).md)
-This will send the specified input options, where you have to specify [EKey](https://github.com/wrekklol/Portal-Releases/blob/main/docs/EKey.md) as well as [EKeyState](https://github.com/wrekklol/Portal-Releases/blob/main/docs/EKeyState.md) (Up or Down). If InKeyState is not specified it will default to EKeyState.Down | EKeyState Up, which exactly like a [Click](https://github.com/wrekklol/Portal-Releases/blob/main/docs/InputManager.Click(InputOptions).md).  
+This will send the specified input options, where you have to specify [EKey](https://github.com/wrekklol/Portal-Releases/blob/main/docs/EKey.md) as well as [EKeyState](https://github.com/wrekklol/Portal-Releases/blob/main/docs/EKeyState.md) (Up or Down).\
+If InKeyState is not specified it will default to EKeyState.Down | EKeyState Up, which exactly like a [Click](https://github.com/wrekklol/Portal-Releases/blob/main/docs/InputManager.Click(InputOptions).md).\
 Key modifiers can also be specified using the [EKeyModifier](https://github.com/wrekklol/Portal-Releases/blob/main/docs/EKeyModifier.md) enum.
 
 Example:
