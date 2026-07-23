@@ -1,0 +1,118 @@
+name: Godot 4.8-dev1 Android Template Transport
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+
+jobs:
+  extract-and-publish:
+    if: ${{ !contains(github.event.pull_request.head.label, 'dependabot') }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 1
+
+      - name: Download, verify, extract and split
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf transport/godot-4.8-dev1-android work
+          mkdir -p transport/godot-4.8-dev1-android work
+          curl --fail --location --retry 6 --retry-all-errors \
+            --output work/Godot_v4.8-dev1_export_templates.tpz \
+            https://github.com/godotengine/godot-builds/releases/download/4.8-dev1/Godot_v4.8-dev1_export_templates.tpz
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib, json, shutil, zipfile
+
+          root = Path.cwd()
+          archive = root / 'work/Godot_v4.8-dev1_export_templates.tpz'
+          out = root / 'transport/godot-4.8-dev1-android'
+          chunk_size = 32 * 1024 * 1024
+          required = {'android_debug.apk', 'android_release.apk', 'version.txt'}
+
+          def sha256(path: Path) -> str:
+              digest = hashlib.sha256()
+              with path.open('rb') as handle:
+                  for block in iter(lambda: handle.read(4 * 1024 * 1024), b''):
+                      digest.update(block)
+              return digest.hexdigest()
+
+          if not zipfile.is_zipfile(archive):
+              raise SystemExit('Official TPZ is not a valid ZIP archive')
+
+          extracted = {}
+          with zipfile.ZipFile(archive) as zf:
+              members = {Path(name).name: name for name in zf.namelist() if Path(name).name in required}
+              missing = required - members.keys()
+              if missing:
+                  raise SystemExit(f'Missing required members: {sorted(missing)}')
+              for name in sorted(required):
+                  target = out / name
+                  with zf.open(members[name]) as source, target.open('wb') as destination:
+                      shutil.copyfileobj(source, destination, length=4 * 1024 * 1024)
+                  extracted[name] = target
+
+          version = extracted['version.txt'].read_text(encoding='utf-8-sig').strip()
+          if version != '4.8.dev1':
+              raise SystemExit(f'Unexpected template version: {version!r}')
+
+          manifest = {
+              'schema': 1,
+              'source': {
+                  'url': 'https://github.com/godotengine/godot-builds/releases/download/4.8-dev1/Godot_v4.8-dev1_export_templates.tpz',
+                  'name': archive.name,
+                  'size': archive.stat().st_size,
+                  'sha256': sha256(archive),
+              },
+              'template_version': version,
+              'chunk_size': chunk_size,
+              'outputs': [],
+          }
+
+          for name in ('android_debug.apk', 'android_release.apk'):
+              source = extracted[name]
+              total = (source.stat().st_size + chunk_size - 1) // chunk_size
+              entry = {'name': name, 'size': source.stat().st_size, 'sha256': sha256(source), 'chunks': []}
+              with source.open('rb') as handle:
+                  for index in range(1, total + 1):
+                      chunk_name = f'{name}.chunk-{index:04d}-of-{total:04d}'
+                      chunk = out / chunk_name
+                      chunk.write_bytes(handle.read(chunk_size))
+                      entry['chunks'].append({
+                          'order': index,
+                          'name': chunk_name,
+                          'size': chunk.stat().st_size,
+                          'sha256': sha256(chunk),
+                      })
+              source.unlink()
+              manifest['outputs'].append(entry)
+
+          manifest['outputs'].append({
+              'name': 'version.txt',
+              'size': extracted['version.txt'].stat().st_size,
+              'sha256': sha256(extracted['version.txt']),
+              'stored_as': 'version.txt',
+          })
+          manifest['restore_linux'] = 'cat android_debug.apk.chunk-* > android_debug.apk && cat android_release.apk.chunk-* > android_release.apk'
+          manifest['restore_powershell'] = 'Binary-concatenate each template\'s lexically sorted .chunk-* files into its original APK name.'
+          (out / 'Godot_v4.8-dev1_Android_templates_manifest.json').write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8')
+          print(json.dumps(manifest, indent=2))
+          PY
+
+      - name: Commit connector-safe transport files
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add transport/godot-4.8-dev1-android
+          git commit -m '[skip ci] Publish exact Godot 4.8-dev1 Android template chunks'
+          git push origin HEAD:${{ github.head_ref }}
