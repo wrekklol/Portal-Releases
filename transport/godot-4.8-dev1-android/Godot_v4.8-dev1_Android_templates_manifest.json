@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "source": {
+    "url": "https://github.com/godotengine/godot-builds/releases/download/4.8-dev1/Godot_v4.8-dev1_export_templates.tpz",
+    "name": "Godot_v4.8-dev1_export_templates.tpz",
+    "size": 1292137184,
+    "sha256": "b9a0fc4e4b74457363c1e747a9f96fb81c0b9421cb4e2c986730fdefefbe8605"
+  },
+  "template_version": "4.8.dev1",
+  "chunk_size": 33554432,
+  "outputs": [
+    {
+      "name": "android_debug.apk",
+      "size": 128045261,
+      "sha256": "63d2deb02cab6f5fc693dfd344922072d933f412816915b06a098085bbff5b45",
+      "chunks": [
+        {
+          "order": 1,
+          "name": "android_debug.apk.chunk-0001-of-0004",
+          "size": 33554432,
+          "sha256": "d775820f82f98702e3c0e846553d9e86d9e879b49fcf7a67c259fb7051bb108a"
+        },
+        {
+          "order": 2,
+          "name": "android_debug.apk.chunk-0002-of-0004",
+          "size": 33554432,
+          "sha256": "167b5e5b9167e34ba3b5c6089b86736a5bad9a487b5cdc75fa18fd258be66421"
+        },
+        {
+          "order": 3,
+          "name": "android_debug.apk.chunk-0003-of-0004",
+          "size": 33554432,
+          "sha256": "d47bf8844e55ba803a4b5d389d2d84dc9388d21ab8ea9d33514b88bb3ea33ab0"
+        },
+        {
+          "order": 4,
+          "name": "android_debug.apk.chunk-0004-of-0004",
+          "size": 27381965,
+          "sha256": "24723dd4b12ffcbe7ab14e2182723067a22e4bcc18a22a74353ffa63f231dbb7"
+        }
+      ]
+    },
+    {
+      "name": "android_release.apk",
+      "size": 105804253,
+      "sha256": "fb1208ff6b2a7c483e04360f6eefdfc98fc58362a5492df50ecbc0998ddbbf56",
+      "chunks": [
+        {
+          "order": 1,
+          "name": "android_release.apk.chunk-0001-of-0004",
+          "size": 33554432,
+          "sha256": "72348c114a0bfc6eadb7784e2c76f1e24f7ee87e50d62349dae96d4ae180943b"
+        },
+        {
+          "order": 2,
+          "name": "android_release.apk.chunk-0002-of-0004",
+          "size": 33554432,
+          "sha256": "422313a8cea2ca98f2ae7afc37b3c04e6b2536e8dfa8242bb439700b0a9800d2"
+        },
+        {
+          "order": 3,
+          "name": "android_release.apk.chunk-0003-of-0004",
+          "size": 33554432,
+          "sha256": "ba6122226c8345c6e25cc308d12f45f8dfc4e2b6f571c2e66755c2a21d3313d9"
+        },
+        {
+          "order": 4,
+          "name": "android_release.apk.chunk-0004-of-0004",
+          "size": 5140957,
+          "sha256": "1ba48343556b7b15781f4c99c90c6f431f9e20d706a062b4e57a5491850e75ef"
+        }
+      ]
+    },
+    {
+      "name": "version.txt",
+      "size": 9,
+      "sha256": "9eb0962cdafb8ea48108276c963aa428a06b8c3816ac1d5b77a5f72873e8b537",
+      "stored_as": "version.txt"
+    }
+  ],
+  "restore_linux": "cat android_debug.apk.chunk-* > android_debug.apk && cat android_release.apk.chunk-* > android_release.apk",
+  "restore_powershell": "Binary-concatenate each template's lexically sorted .chunk-* files into its original APK name."
+}
