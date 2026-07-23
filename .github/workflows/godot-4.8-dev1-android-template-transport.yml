@@ -107,6 +107,40 @@ jobs:
           print(json.dumps(manifest, indent=2))
           PY
 
+      - name: Upload manifest and version
+        uses: actions/upload-artifact@v4
+        with:
+          name: godot-4.8-dev1-android-manifest
+          path: |
+            transport/godot-4.8-dev1-android/Godot_v4.8-dev1_Android_templates_manifest.json
+            transport/godot-4.8-dev1-android/version.txt
+          compression-level: 0
+          retention-days: 2
+      - name: Upload debug chunk 1
+        uses: actions/upload-artifact@v4
+        with: {name: android-debug-0001, path: transport/godot-4.8-dev1-android/android_debug.apk.chunk-0001-of-0004, compression-level: 0, retention-days: 2}
+      - name: Upload debug chunk 2
+        uses: actions/upload-artifact@v4
+        with: {name: android-debug-0002, path: transport/godot-4.8-dev1-android/android_debug.apk.chunk-0002-of-0004, compression-level: 0, retention-days: 2}
+      - name: Upload debug chunk 3
+        uses: actions/upload-artifact@v4
+        with: {name: android-debug-0003, path: transport/godot-4.8-dev1-android/android_debug.apk.chunk-0003-of-0004, compression-level: 0, retention-days: 2}
+      - name: Upload debug chunk 4
+        uses: actions/upload-artifact@v4
+        with: {name: android-debug-0004, path: transport/godot-4.8-dev1-android/android_debug.apk.chunk-0004-of-0004, compression-level: 0, retention-days: 2}
+      - name: Upload release chunk 1
+        uses: actions/upload-artifact@v4
+        with: {name: android-release-0001, path: transport/godot-4.8-dev1-android/android_release.apk.chunk-0001-of-0004, compression-level: 0, retention-days: 2}
+      - name: Upload release chunk 2
+        uses: actions/upload-artifact@v4
+        with: {name: android-release-0002, path: transport/godot-4.8-dev1-android/android_release.apk.chunk-0002-of-0004, compression-level: 0, retention-days: 2}
+      - name: Upload release chunk 3
+        uses: actions/upload-artifact@v4
+        with: {name: android-release-0003, path: transport/godot-4.8-dev1-android/android_release.apk.chunk-0003-of-0004, compression-level: 0, retention-days: 2}
+      - name: Upload release chunk 4
+        uses: actions/upload-artifact@v4
+        with: {name: android-release-0004, path: transport/godot-4.8-dev1-android/android_release.apk.chunk-0004-of-0004, compression-level: 0, retention-days: 2}
+
       - name: Publish stable temporary release assets
         shell: bash
         env:
