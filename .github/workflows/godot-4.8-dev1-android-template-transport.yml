@@ -107,12 +107,29 @@ jobs:
           print(json.dumps(manifest, indent=2))
           PY
 
-      - name: Commit connector-safe transport files
+      - name: Publish stable temporary release assets
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          tag='godot-4.8-dev1-android-transport-temp'
+          gh release delete "$tag" --cleanup-tag --yes >/dev/null 2>&1 || true
+          gh release create "$tag" \
+            transport/godot-4.8-dev1-android/* \
+            --target "$GITHUB_SHA" \
+            --title 'Temporary Godot 4.8-dev1 Android template transport' \
+            --notes 'Exact official Godot 4.8-dev1 Android templates, split without transformation and accompanied by SHA-256 manifest. Temporary transport only.' \
+            --prerelease
+
+      - name: Keep connector-safe transport files on the branch
         shell: bash
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add transport/godot-4.8-dev1-android
-          git commit -m '[skip ci] Publish exact Godot 4.8-dev1 Android template chunks'
-          git push origin HEAD:${{ github.head_ref }}
+          if ! git diff --cached --quiet; then
+            git commit -m '[skip ci] Publish exact Godot 4.8-dev1 Android template chunks'
+            git push origin HEAD:${{ github.head_ref }}
+          fi
